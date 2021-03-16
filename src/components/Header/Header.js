@@ -6,14 +6,14 @@ function Header() {
     return (
         <>
           <nav className={style.navbar}>
-            <div className={style.container}>
+            <div className={style.navbarContainer}>
               <Link to="/" className={style.logo}>
                   CASA de AURORA
               </Link>
             </div>
-            <ul className={style.menu}>
+            <ul className={style.navbarMenu}>
               <li className={style.item}>
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/home" className={style.links}>
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/" className={style.links}>
                   Home
                 </NavLink>
               </li>

@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Ballerina';
-  src: local('Ballerina'), url(../fonts/ballerina-ezevo.otf);
+  src: local('Ballerina'), url(../fonts-and-images/ballerina-ezevo.otf);
 }
 
 @font-face {
   font-family: 'Fascinate';
-  src: local('Fascinate'), url(../fonts/Fascinate-Regular.ttf);
+  src: local('Fascinate'), url(../fonts-and-images/Fascinate-Regular.ttf);
 }
 
 .navbar {
@@ -20,7 +20,7 @@
   z-index: 999;
 }
 
-.container {
+.navbarContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@
   font-family: 'Fascinate';
 }
 
-.menu {
+.navbarMenu {
   display: grid;
   grid-template-columns: repeat(4, auto);
   grid-gap: 10px;
