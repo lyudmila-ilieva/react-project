@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Header.module.css';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
     return (
@@ -8,24 +8,24 @@ function Header() {
           <nav className={style.navbar}>
             <div className={style.container}>
               <Link to="/" className={style.logo}>
-                  CASA de AURORA&reg;
+                  CASA de AURORA
               </Link>
             </div>
             <ul className={style.menu}>
               <li className={style.item}>
-                <Link to="/" className={style.links}>
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/home" className={style.links}>
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className={style.item}>
-                <Link to="/" className={style.links}>
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/about" className={style.links}>
                   About us                  
-                </Link>
+                </NavLink>
               </li>
               <li className={style.item}>
-                <Link to="/" className={style.links}>
-                  Contacts                  
-                </Link>
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/contact" className={style.links}>
+                  Contact                  
+                </NavLink>
               </li>
               <li className={style.item}>
                 <Link to="/" className={style.links}>

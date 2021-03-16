@@ -50,7 +50,6 @@
   justify-content: end;
   margin-right: 2rem;
 }
-
 .item {
   height: 80px;
 }
@@ -67,6 +66,7 @@
 .links:hover {
   border-bottom: 4px solid white;
   transition: all 0.2s ease-out;
+  font-size: 1.1em;  
 }
 
 
