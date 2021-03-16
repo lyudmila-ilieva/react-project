@@ -8,10 +8,10 @@ function Header() {
           <nav className={style.navbar}>
             <div className={style.container}>
               <Link to="/" className={style.logo}>
-                  CASA de AURORA
+                  CASA de AURORA&reg;
               </Link>
             </div>
-            <ul>
+            <ul className={style.menu}>
               <li className={style.item}>
                 <Link to="/" className={style.links}>
                   Home
@@ -25,6 +25,11 @@ function Header() {
               <li className={style.item}>
                 <Link to="/" className={style.links}>
                   Contacts                  
+                </Link>
+              </li>
+              <li className={style.item}>
+                <Link to="/" className={style.links}>
+                  Sign In                  
                 </Link>
               </li>
             </ul>
