@@ -1,36 +1,49 @@
-import React from 'react';
-import style from './Header.module.css';
+import React, { useState } from 'react';
+import './Header.css';
 import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => {
+    setClick(!click);
+  }
+
+  const closeMobileMenu = () => {
+    setClick(false);
+  }
+
     return (
         <>
-          <nav className={style.navbar}>
-            <div className={style.navbarContainer}>
-              <Link to="/" className={style.logo}>
-                  CASA de AURORA
+          <nav className="navbar">
+            <div className="navbar-container">
+              <Link to="/our-mission" className="navbar-logo">
+                CASA de AURORA
               </Link>
             </div>
-            <ul className={style.navbarMenu}>
-              <li className={style.item}>
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/" className={style.links}>
+            <div className="menu-icon" onClick={handleClick}>
+              <i className={click ? "fas fa-times" : "fas fa-bars"}/>
+            </div>
+            <ul className="nav-menu">
+              <li className="nav-item">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/" onClick={closeMobileMenu} className="nav-links">
                   Home
                 </NavLink>
               </li>
-              <li className={style.item}>
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/about" className={style.links}>
+              <li className="nav-item">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/about" onClick={closeMobileMenu} className="nav-links">
                   About us                  
                 </NavLink>
               </li>
-              <li className={style.item}>
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/contact" className={style.links}>
+              <li className="nav-item">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/contact" onClick={closeMobileMenu} className="nav-links">
                   Contact                  
                 </NavLink>
               </li>
-              <li className={style.item}>
-                <Link to="/" className={style.links}>
+              <li className="nav-item">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/sign-in" onClick={closeMobileMenu} className="nav-links">
                   Sign In                  
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </nav>            

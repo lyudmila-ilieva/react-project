@@ -1,5 +1,4 @@
 .mainContainer {
-    /* background: url('/images/img-home.jpg') center center/cover no-repeat; */
     height: 100vh;
     width: 100%;
     display: flex;
@@ -8,11 +7,13 @@
     align-items: center;
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
     object-fit: contain;
-  }
-  
-  h1 {
-    color: white;
-    font-size: 80px;
-    margin-top: -150px;
+  } 
+
+.mainContainer h3 {
+    position: absolute;
+    top: 60px;
+    left: 120px; 
+    color: red;
+    font-size: 40px;
   }
   

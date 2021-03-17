@@ -4,8 +4,10 @@ import style from './Main.module.css'
 function Main() {
 return (
     <div className={style.mainContainer}>
-        <img src="img-home.jpg"/>
-        <h1>Home page</h1>
+        <img src="img-home.jpg" alt="Home" />
+        <div>
+          <h3>Home page</h3>
+        </div>
     </div>
   )
 }
