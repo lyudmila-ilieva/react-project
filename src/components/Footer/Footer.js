@@ -10,7 +10,7 @@ function Footer() {
             Join our newsletter to be the first to know 
             </p>
             <p className="footer-subscription-text">
-            You can unsubscribe at any time
+            You can unsubscribe at any time.
             </p>
             <div className="input-area">
                 <form>
@@ -55,11 +55,35 @@ function Footer() {
                          &copy; 2021 Casa de Aurora - All Rights Reserved
                     </small>
                     <div className="social-icons">
-                        <Link className="social-icon-link facevook"
+                        <Link className="social-icon-link facebook"
                         to="/"
                         target="_blank"
                         aria-label= "Facebook">
-                            <i class="fab fa-facebook"></i>
+                            <i className="fab fa-facebook" />
+                        </Link>
+                        <Link className="social-icon-link instagram"
+                        to="/"
+                        target="_blank"
+                        aria-label= "Instagram">
+                            <i className="fab fa-instagram" />
+                        </Link>
+                        <Link className="social-icon-link youtube"
+                        to="/"
+                        target="_blank"
+                        aria-label= "Youtube">
+                            <i className="fab fa-youtube" />
+                        </Link>
+                        <Link className="social-icon-link linkedin"
+                        to="/"
+                        target="_blank"
+                        aria-label= "Linkedin">
+                            <i className="fab fa-linkedin" />
+                        </Link>
+                        <Link className="social-icon-link github"
+                        to="/"
+                        target="_blank"
+                        aria-label= "Github">
+                            <i className="fab fa-github" />
                         </Link>
                     </div>
                 </div>

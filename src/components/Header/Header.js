@@ -21,9 +21,9 @@ function Header() {
                 CASA de AURORA
               </Link>
             </div>
-            <div className="menu-icon" onClick={handleClick}>
+            {/* <div className="menu-icon" onClick={handleClick}>
               <i className={click ? "fas fa-times" : "fas fa-bars"}/>
-            </div>
+            </div> */}
             <ul className="nav-menu">
               <li className="nav-item">
                 <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/" onClick={closeMobileMenu} className="nav-links">
