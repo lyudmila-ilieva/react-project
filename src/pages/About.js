@@ -1,11 +1,13 @@
 import React from 'react';
-import '../App.css';
+import Main from '../components/Main/Main-about';
 
-export default function About() {
-return <div className="main-container">
+function About() {
+
+return (
+    <>
+     <Main />
+    </>
+  )
+}           
          
-        {/* <h3 className="about-text">We were founded in 2021 in Varna, Bulgaria</h3>  */}
-         <img src="img-about-us.jpg" alt="About us"></img>             
-         
-        </div> 
-}
+export default About;
