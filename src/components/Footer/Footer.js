@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
 
 function Footer() {
@@ -7,40 +8,43 @@ function Footer() {
       <div className="footer-container">
           <section className="footer-subscription">
             <p className="footer-subscription-heading">
-            Join our newsletter to be the first to know 
+            SIGN UP FOR OUR NEWSLETTER 
             </p>
             <p className="footer-subscription-text">
             You can unsubscribe at any time.
             </p>
             <div className="input-area">
                 <form>
-                    <input type="email" name="email" placeholder="Your email here" className="footer-input"/>
+                    <input type="email" name="email" placeholder="*Email Address" className="footer-input"/>
                 </form>
+                <Button buttonStyle="btn-outline" type="submit">Subscribe</Button>
             </div>
           </section>
           <div className="footer-links">
               <div className="footer-link-wrapper">
                   <div className="footer-link-items">
-                      <h3>Information:</h3>
-                      <Link to="/faq">FAQ</Link>
-                      <Link to="/clients">Our clients</Link>
-                      <Link to="/mission">Mission</Link>
+                      <h3>Customer services</h3>
+                      <Link to="/faq">Help</Link>
+                      <Link to="/mission">FAQ</Link>
+                      <Link to="/mission">COVID 19 Updates</Link>
+                      <Link to="/mission">Cookies Policy</Link>
                   </div>
               </div>
               <div className="footer-link-wrapper">
                   <div className="footer-link-items">
-                      <h3>Information:</h3>
-                      <Link to="/faq">FAQ</Link>
-                      <Link to="/clients">Our clients</Link>
-                      <Link to="/mission">Mission</Link>
+                      <h3>About Us                </h3>
+                      <Link to="/faq">Our story</Link>
+                      <Link to="/clients">Contact Us</Link>
+                      <Link to="/clients">Find A Store</Link>
+                      <Link to="/mission">Careers</Link>
                   </div>
               </div>
               <div className="footer-link-wrapper">
                   <div className="footer-link-items">
-                      <h3>Information:</h3>
-                      <Link to="/faq">FAQ</Link>
-                      <Link to="/clients">Our clients</Link>
-                      <Link to="/mission">Mission</Link>
+                      <h3>New Products</h3>
+                      <Link to="/faq">--</Link>
+                      <Link to="/clients">--</Link>
+                      <Link to="/mission">--</Link>
                   </div>
               </div>
           </div>

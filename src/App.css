@@ -51,8 +51,11 @@
   align-items: center;
   box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
   object-fit: contain;
+}
 
-  }
+.about {
+  background-image: url(/src/components/fonts-and-images/img-about-us.jpg);
+}
 
 .about-text {
   position: relative;
