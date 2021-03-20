@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import Button from '../Button/Button';
 import style from './Main.module.css';
 
@@ -7,7 +7,7 @@ function Main() {
 return (
     <div className={style.mainContainerRegister}>
         <section className={style.formRegister}>
-        <p className={style.formRegisterHeading}>Register now</p>
+        <p className={style.formRegisterHeading}>SIGN UP</p>
         <div className={style.inputArea}>
         <form method="POST">
             <p>
@@ -27,7 +27,7 @@ return (
             </p>
         <input type="text" name="repeat-password" placeholder="*Repeat Password" className="footer-input"/>
         </form>
-        <Button buttonStyle={'btn-primary'}>Register</Button>
+        <Button buttonStyle={'btn-outline'}>Register</Button>
         </div>
         </section>
     </div>

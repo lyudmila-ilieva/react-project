@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import './Footer.css';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
@@ -24,19 +24,19 @@ function Footer() {
               <div className="footer-link-wrapper">
                   <div className="footer-link-items">
                       <h3>Customer services</h3>
-                      <Link to="/faq">Help</Link>
-                      <Link to="/mission">FAQ</Link>
-                      <Link to="/mission">COVID 19 Updates</Link>
-                      <Link to="/mission">Cookies Policy</Link>
+                      <Link to="/help">Help</Link>
+                      <Link to="/faq">FAQ</Link>
+                      <Link to="/covid">COVID 19 Updates</Link>
+                      <Link to="/cookies">Cookies Policy</Link>
                   </div>
               </div>
               <div className="footer-link-wrapper">
                   <div className="footer-link-items">
                       <h3>About Us</h3>
-                      <Link to="/faq">Our story</Link>
-                      <Link to="/clients">Contact Us</Link>
-                      <Link to="/clients">Find A Store</Link>
-                      <Link to="/mission">Careers</Link>
+                      <Link to="/story">Our story</Link>
+                      <Link to="/contact">Contact Us</Link>
+                      <Link to="/stores">Find A Store</Link>
+                      <Link to="/careers">Careers</Link>
                   </div>
               </div>
               <div className="footer-link-wrapper">
@@ -65,30 +65,46 @@ function Footer() {
                         aria-label= "Facebook">
                             <i className="fab fa-facebook" />
                         </Link>
-                        <Link className="social-icon-link instagram"
-                        to="/"
+                        <a className="social-icon-link instagram"
                         target="_blank"
+                        rel="noopener noreferrer" 
+                        href="https://www.instagram.com/casa.de.aurora/?hl=bg"
                         aria-label= "Instagram">
-                            <i className="fab fa-instagram" />
-                        </Link>
-                        <Link className="social-icon-link youtube"
+                             <i className="fab fa-instagram" />
+                        </a>
+                        <a className="social-icon-link youtube"
+                        target="_blank"
+                        rel="noopener noreferrer" 
+                        href="https://www.youtube.com/watch?v=na-CylyaJb0"
+                        aria-label= "Youtube">
+                             <i className="fab fa-youtube" />
+                        </a>
+                        {/* <Link className="social-icon-link youtube"
                         to="/"
                         target="_blank"
                         aria-label= "Youtube">
                             <i className="fab fa-youtube" />
-                        </Link>
+                        </Link> */}
                         <Link className="social-icon-link linkedin"
                         to="/"
                         target="_blank"
+                        rel="noopener noreferrer"
                         aria-label= "Linkedin">
                             <i className="fab fa-linkedin" />
                         </Link>
-                        <Link className="social-icon-link github"
+                        <a className="social-icon-link github"
+                        target="_blank"
+                        rel="noopener noreferrer" 
+                        href="https://github.com/lyudmila-ilieva/react-project"
+                        aria-label= "Github">
+                             <i className="fab fa-github" />
+                        </a>
+                        {/* <Link className="social-icon-link github"
                         to="/"
                         target="_blank"
                         aria-label= "Github">
                             <i className="fab fa-github" />
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </section>

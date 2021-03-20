@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+// import React from 'react';
 import './Header.css';
 import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
-  const [click, setClick] = useState(false);
+  // const [click, setClick] = useState(false);
 
-  const handleClick = () => {
-    setClick(!click);
-  }
+  // const handleClick = () => {
+  //   setClick(!click);
+  // }
 
-  const closeMobileMenu = () => {
-    setClick(false);
-  }
+  // const closeMobileMenu = () => {
+  //   setClick(false);
+  // }
 
     return (
         <>
@@ -26,22 +26,22 @@ function Header() {
             </div> */}
             <ul className="nav-menu">
               <li className="nav-item">
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/" onClick={closeMobileMenu} className="nav-links">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/" className="nav-links">
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/about" onClick={closeMobileMenu} className="nav-links">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/about" className="nav-links">
                   About us                  
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/contact" onClick={closeMobileMenu} className="nav-links">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/contact" className="nav-links">
                   Contact                  
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/sign-in" onClick={closeMobileMenu} className="nav-links">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/sign-in" className="nav-links">
                   Sign In                  
                 </NavLink>
               </li>
