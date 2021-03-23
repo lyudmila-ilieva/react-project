@@ -1,10 +1,9 @@
-import React from 'react';
-import Main from '../components/Main/Main-register';
+import SignUp from '../components/Main/Main-register';
 
 function Register() {
 return (
     <>
-      <Main />
+      <SignUp />
     </>
   )
 }

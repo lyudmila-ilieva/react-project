@@ -2,7 +2,7 @@ import React from 'react';
 import './Button.css';
 import { Link } from 'react-router-dom';
 
-const STYLES = ['btn-primary', 'btn-outline'];
+const STYLES = ['btn-primary', 'btn-outline', 'btn-register'];
 // const SIZES = ['btn-small', 'btn-medium'];
 
 const Button = ({
@@ -17,11 +17,11 @@ const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
 // const checkButtonSize = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
 return (
-    <Link to="/">
+    // <Link to="/">
         <button className={`btn ${checkButtonStyle}`} onClick={onClick} type={type}>
             {children}
         </button>
-    </Link>
+    // </Link>
 )
 };
 

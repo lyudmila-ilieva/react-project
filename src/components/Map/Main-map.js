@@ -1,12 +1,15 @@
-import { GoogleMap, useLoadScript, Marker} from '@react-google-maps/api';
-// import '/Map.css';
+import { GoogleMap, useLoadScript, Marker, InfoWindow} from '@react-google-maps/api';
+import './Main-map.css';
 import "@reach/combobox/styles.css";
+
+// import mapStyles from './Main-map.styles';
+
 import React from 'react';
 
 const libraries = ["places"];
 const mapContainerStyle = {
-  widht: "100vw",
-  height: "100vh"
+  width: "45vw",
+  height: "60vh",
 }
 
 const options = {
@@ -22,7 +25,16 @@ function Map() {
     libraries
   });
 
-  const [markers, setMarkers] = React.useState([]);
+  const [markers, setMarkers] = React.useState([{lat: 41.38179741674477,
+    lng: 2.172604965326068,
+    time: new Date()
+    }]);
+  const [selected, setSelected] = React.useState(null);
+
+  const mapRef = React.useRef();
+  const onMapLoad = React.useCallback((map) => {
+    mapRef.current = map;
+  }, []);
 
   if (loadError) {
     return "Error loading maps";
@@ -32,33 +44,64 @@ function Map() {
   }
 
     return (
-    <div>
-      <h1>Stores <span role="img" area-label="store">🏪</span></h1>
+  <div className="contact-container">
+    <h3>Casa de Aurora&reg;</h3>
+    <div className="map-container">
       <GoogleMap mapContainerStyle={mapContainerStyle}
       zoom={14} 
-      center={{lat: 43.216640, lng:27.911810}}
+      center={{lat: 41.38179741674477, lng: 2.172604965326068}}
       options={options}
-      onClick={(event) => {
-        setMarkers((current) => [
-          ...current,
-        {lat: event.latLng.lat(),
-        lng: event.latLng.lng(),
-      time: new Date() 
-        }
-        ]);
-        }}
+      // onClick={(event) => {
+      //   setMarkers((current) => [
+      //     ...current,
+      //   {lat: event.latLng.lat(),
+      //   lng: event.latLng.lng(),
+      //   time: new Date() 
+      //   }
+      //   ]);
+      //   }}
+      onLoad={onMapLoad}
         >
         {markers.map(marker => (
         <Marker key={marker.time.toISOString()}
         position={{lat: marker.lat, lng: marker.lng}}
         icon={{
-        url:'/icon-furniture-store.png',
-        scaledSize: new window.google.maps.Size(30,30),
+        url:'/furniture-stores.png',
+        scaledSize: new window.google.maps.Size(21, 28),
+        origin: new window.google.maps.Point(0, 0),
+        anchor: new window.google.maps.Point(10.5, 14)
+             }}
+             onClick={() => {
+               setSelected(marker);
              }}
         />   
         ))}
+
+        {selected ? (
+          <InfoWindow position={{lat: selected.lat, lng: selected.lng}} 
+          onCloseClick={() => {
+            setSelected(null)
+          }}>
+            <div>
+              <p>Casa de Aurora</p>
+              <p>08002 Barcelona</p>
+              <p>Rambla de Sant Josep, 85</p>
+              <p>+34 323 434 545</p>
+              <p>Monday-Friday: 09:00 - 17:00</p>
+            </div>
+          </InfoWindow>
+        ) : null}
       </GoogleMap>
     </div>
+    <div className="info-container">
+      <h2>Casa de Aurora</h2>
+      <h3>Where to find us:</h3>
+      <p>08002 Barcelona</p>
+      <p>Rambla de Sant Josep, 85</p>
+      <p>+34 323 434 545</p>
+      <p>office@casadeaurora.com</p>
+    </div>
+  </div>
     )
 }
 

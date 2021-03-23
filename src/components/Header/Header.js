@@ -17,7 +17,7 @@ function Header() {
         <>
           <nav className="navbar">
             <div className="navbar-container">
-              <Link to="/our-mission" className="navbar-logo">
+              <Link to="/" className="navbar-logo">
                 CASA de AURORA
               </Link>
             </div>
@@ -37,7 +37,7 @@ function Header() {
               </li>
               <li className="nav-item">
                 <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/contact" className="nav-links">
-                  Contact                  
+                  Contacts                  
                 </NavLink>
               </li>
               <li className="nav-item">

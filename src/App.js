@@ -4,24 +4,32 @@ import Footer from './components/Footer/Footer';
 import Home from '../src/pages/Home';
 import About from '../src/pages/About';
 import Register from '../src/pages/Register';
+import Login from '../src/pages/Login';
 import Contact from '../src/pages/Contact';
+// import PrivateRoute from '../src/PrivateRoute';
+import { AuthProvider } from '../src/Auth';
 
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+
+    // <AuthProvider>
       <Router>
+      <div className="App">
         <Header />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/sign-in" component={Register} />
+            <Route path="/sign-in" component={Login} />
+            <Route path="/sign-up" component={Register} />
             <Route path="/contact" component={Contact} />
           </Switch>
         <Footer />
+      </div>
       </Router>
-    </div>
+  //  </AuthProvider>
+  
   );
 }
 
