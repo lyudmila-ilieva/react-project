@@ -1,4 +1,4 @@
-import SignUp from '../components/Main/Main-register';
+import SignUp from '../components/Main/Register/Main-register';
 
 function Register() {
 return (

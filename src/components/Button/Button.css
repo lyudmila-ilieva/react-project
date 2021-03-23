@@ -5,7 +5,6 @@
     outline: none;
     border: none;
     cursor: pointer;
-    /* margin-top: 10px; */
 }
 
 .btn-register {
@@ -20,6 +19,7 @@
     background-color: white;
     color: black;
     border: 1px solid white;
+    margin-top: 10px;
 }
 
 .btn-outline {
@@ -27,6 +27,7 @@
     color: white;
     border: 1px solid white;
     transition: all 0.3s ease-out;
+    margin-top: 10px;
 }
 
 .btn-register:hover {

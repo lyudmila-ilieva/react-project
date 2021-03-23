@@ -56,8 +56,8 @@ margin-top: 35px;
 
 .formRegister {
   position: absolute;
-  left: 41%;
-  top: 18%;
+  left: 42%;
+  top: 19%;
   display: flex;
   flex-direction: column;   
   text-align: center;
@@ -79,21 +79,23 @@ margin-top: 35px;
 .formRegisterHeading {
   width: 100%;
   color: black;
-  font-size: 30px;
-  /* margin: 30px 0 0 0; */
+  font-size: 20px;
 }
 
 .registerInput {
   border: 1px solid black;
-  margin: 20px;
+}
+
+.registerElement {
+  margin: 8px 0 8px 0;
 }
 
 .loginInput {
   border: 1px solid black;
   margin: 20px;
 }
-  
-.inputValidation {
-  color:red;
-  display: none;
+
+.messages {
+color: red;
+font-size: 10px;
 }
