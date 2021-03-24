@@ -1,10 +1,10 @@
 import { withRouter } from 'react-router-dom';
 import React, { useCallback } from 'react';
-import app from '../../../Base';
+// import app from '../../../Base';
 import Button from '../../Button/Button';
-import content from './formContentRegister';
-import style from '../Main.module.css';
+import style from './Main-register.module.css';
 
+import content from './formContentRegister';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -42,7 +42,7 @@ const onSubmit = (data) => console.log(data)
       <div className={style.mainContainerRegister}>
       <img src="img-login.jpg" alt="Register" />
       <form className={style.formRegister} onSubmit={handleSubmit(onSubmit)}>
-      <p className={style.formRegisterHeading}>SIGN UP</p>
+      <p className={style.formRegisterHeading}>Register</p>
       {content.inputs.map((input, key) => {      
         return (
           <div key={key}>

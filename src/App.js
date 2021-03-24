@@ -6,6 +6,7 @@ import About from '../src/pages/About';
 import Register from '../src/pages/Register';
 import Login from '../src/pages/Login';
 import Contact from '../src/pages/Contact';
+import Covid from '../src/pages/Covid';
 // import PrivateRoute from '../src/PrivateRoute';
 import { AuthProvider } from '../src/Auth';
 
@@ -21,9 +22,12 @@ function App() {
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/about" component={About} />
+            <Route path="/story" component={About} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={Register} />
-            <Route path="/contact" component={Contact} />
+            <Route path="/contacts" component={Contact} />
+            <Route path="/stores" component={Contact} />
+            <Route path="/covid" component={Covid} />
           </Switch>
         <Footer />
       </div>

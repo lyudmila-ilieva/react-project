@@ -1,0 +1,50 @@
+.mainContainerRegister{
+    /* background: url(../fonts-and-images/img-register-2.jpg) no-repeat center; */
+    /* background-repeat: no-repeat;
+    background-position: center; */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+}
+
+.formLogin {
+    position: absolute;
+    left: 42.5%;
+    top: 21%;
+    display: flex;
+    flex-direction: column;   
+    text-align: center;
+    align-content: center;
+    font-weight: bold;
+  }
+  
+.formRegisterHeading {
+  width: 100%;
+  color: black;
+  font-size: 30px;
+  margin-top: 35px;
+  font-family: 'Fascinate';
+}
+
+.registerInput {
+  border: 1px solid black;
+}
+
+.registerElement {
+  margin: 8px 0 8px 0;
+}
+
+/* .loginInput {
+  border: 1px solid black;
+  margin: 20px;
+} */
+
+.messages {
+color: red;
+font-size: 10px;
+}

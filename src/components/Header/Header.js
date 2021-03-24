@@ -26,18 +26,18 @@ function Header() {
             </div> */}
             <ul className="nav-menu">
               <li className="nav-item">
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/" className="nav-links">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
                 <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/about" className="nav-links">
                   About us                  
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/contact" className="nav-links">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/contacts" className="nav-links">
                   Contacts                  
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/sign-up" className="nav-links">
+                  Register
                 </NavLink>
               </li>
               <li className="nav-item">

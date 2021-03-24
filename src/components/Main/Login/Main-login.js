@@ -4,9 +4,9 @@ import app from '../../../Base';
 // import { AuthContext } from '../../Auth';
 
 import Button from '../../Button/Button';
-import style from '../Main.module.css';
+import style from './Main-login.module.css';
 
-import contentLogin from './formContentLogin';
+import content from './formContentLogin';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -48,9 +48,9 @@ const schema = yup.object().shape({
           <div>
             <div className={style.mainContainerRegister}>
             <img src="img-login.jpg" alt="Register" />
-            <form className={style.formRegister} onSubmit={handleSubmit(onSubmit)}>
-            <p className={style.formRegisterHeading}>SIGN IN</p>
-            {contentLogin.inputs.map((input, key) => {      
+            <form className={style.formLogin} onSubmit={handleSubmit(onSubmit)}>
+            <p className={style.formRegisterHeading}>Sign In</p>
+            {content.inputs.map((input, key) => {      
               return (
                 <div key={key}>
                   <p className={style.registerElement}>
@@ -69,7 +69,7 @@ const schema = yup.object().shape({
                 );
             })}
                 <p>
-                <Button type="submit" buttonStyle={'btn-register'}>Register</Button>
+                <Button type="submit" buttonStyle={'btn-register'}>Login</Button>
                 </p>
             </form>
           </div>)

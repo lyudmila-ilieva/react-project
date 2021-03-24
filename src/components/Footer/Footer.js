@@ -34,7 +34,7 @@ function Footer() {
                   <div className="footer-link-items">
                       <h3>About Us</h3>
                       <Link to="/story">Our story</Link>
-                      <Link to="/contact">Contact Us</Link>
+                      <Link to="/contacts">Contact Us</Link>
                       <Link to="/stores">Find A Store</Link>
                       <Link to="/careers">Careers</Link>
                   </div>
