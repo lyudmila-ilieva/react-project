@@ -15,7 +15,7 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 function App() {
   return (
 
-    // <AuthProvider>
+    <AuthProvider>
       <Router>
       <div className="App">
         <Header />
@@ -32,7 +32,7 @@ function App() {
         <Footer />
       </div>
       </Router>
-  //  </AuthProvider>
+     </AuthProvider>
   
   );
 }

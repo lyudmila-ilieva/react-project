@@ -2,7 +2,6 @@ import { GoogleMap, useLoadScript, Marker, InfoWindow} from '@react-google-maps/
 import './Main-map.css';
 import "@reach/combobox/styles.css";
 
-// import mapStyles from './Main-map.styles';
 
 import React from 'react';
 
@@ -13,7 +12,6 @@ const mapContainerStyle = {
 }
 
 const options = {
-  // styles: mapStyles,
   disableDefaultUI: true,
   zoomControl: true
 }

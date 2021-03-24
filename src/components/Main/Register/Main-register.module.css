@@ -14,7 +14,7 @@
 
 .formRegister {
   position: absolute;
-  left: 42%;
+  left: 39.5%;
   top: 19%;
   display: flex;
   flex-direction: column;   
@@ -27,7 +27,7 @@
   width: 100%;
   color: black;
   font-size: 30px;
-  margin-top: 35px;
+  margin-top: 10px;
   font-family: 'Fascinate';
 }
 
@@ -36,12 +36,13 @@
 }
 
 .registerElement {
-  margin: 8px 0 8px 0;
+  margin: 3px 0 3px 0;
 }
 
-.loginInput {
-  border: 1px solid black;
-  margin: 20px;
+.loginLink {
+  text-decoration: none;
+  color: black;
+  margin-top: 5px;
 }
 
 .messages {

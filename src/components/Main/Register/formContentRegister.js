@@ -3,17 +3,17 @@ const content = {
         {
             label: "Email",
             name: "email",
-            type: "text"
+            type: "text",        
         },
         {
             label: "Password",
             name: "password",
-            type: "password"
+            type: "password",        
         },
         {
             label: "Repeat Password",
             name: "repeat",
-            type: "password"
+            type: "password",
     }
     ]
    
