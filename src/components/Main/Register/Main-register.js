@@ -28,10 +28,11 @@ const SignUp = ({ history }) => {
   }, [history]);
 
 //VALIDATION
+
 const schema = yup.object().shape({
     email: yup.string().required('Required field').matches(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Invalid email'),
-    password: yup.string().required('Required field').min(6, 'Password must be at least 5').max(15, 'Password must be less than 15'),
-    repeat: yup.string().required('Required field').min(6, 'Repeat Password must be at least 5').max(15, 'Password must be less than 15')
+    password: yup.string().required('Required field').min(6, 'Password must be at least 6').max(15, 'Password must be less than 15'),
+    repeat: yup.string().required('Required field').oneOf([yup.ref('password'), null], 'Passwords must match')
   });
 
 const {register, handleSubmit, errors} = useForm({

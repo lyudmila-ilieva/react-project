@@ -1,4 +1,7 @@
-import { Link } from 'react-router-dom';
+import React, { useCallback, useContext } from "react";
+import { withRouter, Redirect, Link } from "react-router-dom";
+import app from "../../../Base";
+import { AuthContext } from "../../../Auth";
 
 import Button from '../../Button/Button';
 import style from './Main-login.module.css';
@@ -8,22 +11,48 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
-const schema = yup.object().shape({
-  email: yup.string().required('Required field').matches(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Invalid email'),
-  password: yup.string().required('Required field').min(5, 'Password must be at least 5').max(15, 'Password must be less than 15'),
-});
- const SignIn = () => {
-    const {register, handleSubmit, errors} = useForm({
+//AUTHENTICATION
+const SignIn = ({ history }) => {
+  const handleLogin = useCallback(
+    async event => {
+      event.preventDefault();
+      const { email, password } = event.target.elements;
+      try {
+        await app
+          .auth()
+          .signInWithEmailAndPassword(email.value, password.value);
+        history.push("/");
+      } catch (error) {
+        alert(error);
+      }
+    },
+    [history]
+  );
+
+  const { currentUser } = useContext(AuthContext);
+
+  // if (currentUser) {
+  //   return <Redirect to="/" />;
+  // }
+
+  //VALIDATION
+
+  const schema = yup.object().shape({
+    email: yup.string().required('Required field').matches(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, 'Invalid email'),
+    password: yup.string().required('Required field').min(5, 'Password must be at least 5').max(15, 'Password must be less than 15'),
+  });
+
+  const {register, handleSubmit, errors} = useForm({
         resolver: yupResolver(schema),
       });
       
-      const onSubmit = (data) => console.log(data)
+  const onChange  = (data) => console.log(data)
       
         return (
           <div>
             <div className={style.mainContainerRegister}>
             <img src="img-login.jpg" alt="Register" />
-            <form className={style.formLogin} onSubmit={handleSubmit(onSubmit)}>
+            <form className={style.formLogin} onChange={handleSubmit(onChange)} onSubmit={handleLogin}>
             <p className={style.formRegisterHeading}>Sign In</p>
             {content.inputs.map((input, key) => {      
               return (
@@ -53,4 +82,4 @@ const schema = yup.object().shape({
         )
 }
 
-export default SignIn;
+export default withRouter(SignIn);
