@@ -1,17 +1,7 @@
-// import React from 'react';
 import './Header.css';
 import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
-  // const [click, setClick] = useState(false);
-
-  // const handleClick = () => {
-  //   setClick(!click);
-  // }
-
-  // const closeMobileMenu = () => {
-  //   setClick(false);
-  // }
 
     return (
         <>
@@ -21,9 +11,6 @@ function Header() {
                 CASA de AURORA
               </Link>
             </div>
-            {/* <div className="menu-icon" onClick={handleClick}>
-              <i className={click ? "fas fa-times" : "fas fa-bars"}/>
-            </div> */}
             <ul className="nav-menu">
               <li className="nav-item">
                 <NavLink activeStyle={{fontSize: '1.3em'}} exact={true} to="/about" className="nav-links">

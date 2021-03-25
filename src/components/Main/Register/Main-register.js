@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { withRouter, Link } from 'react-router-dom';
-import app from "../../../Base";
+import firebase from "../../../firebase";
 
 import Button from '../../Button/Button';
 import style from './Main-register.module.css';
@@ -17,7 +17,7 @@ const SignUp = ({ history }) => {
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
-      await app
+      await firebase
         .auth()
         .createUserWithEmailAndPassword(email.value, password.value);
       history.push("/");

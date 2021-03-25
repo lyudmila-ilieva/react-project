@@ -37,8 +37,9 @@ function App() {
       <div className="App">
         <Header />
           <Switch>
-          <PrivateRoute path="/" exact component={About} />
+          
             <Route path="/" exact component={Home} />
+            <PrivateRoute path="/home" exact component={Home} />
             <Route path="/about" component={About} />
             <Route path="/story" component={About} />
             <Route path="/sign-in" component={Login} />
