@@ -36,6 +36,10 @@ const schema = yup.object().shape({
   });
 
 const {register, handleSubmit, errors} = useForm({
+  mode: 'onBlur',
+  reValidateMode: 'onChange',
+  shouldFocusError: false,
+  criteriaMode: "firstError",
   resolver: yupResolver(schema),
 });
 
@@ -55,7 +59,7 @@ const onChange = (data) => console.log(data)
             </p>
             <p className={style.registerElement}>
             <input 
-              ref={register}
+              ref={register ({required: true})}
               type={input.type} 
               name={input.name} 
               className={style.registerInput}

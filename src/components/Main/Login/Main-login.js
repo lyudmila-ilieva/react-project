@@ -1,7 +1,7 @@
 import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect, Link } from "react-router-dom";
 import app from "../../../Base";
-import { AuthContext } from "../../../Auth";
+// import { AuthContext } from "../../../Auth";
 
 import Button from '../../Button/Button';
 import style from './Main-login.module.css';
@@ -29,10 +29,10 @@ const SignIn = ({ history }) => {
     [history]
   );
 
-  const { currentUser } = useContext(AuthContext);
+  // const { currentUser } = useContext(AuthContext);
 
   // if (currentUser) {
-  //   return <Redirect to="/" />;
+  //   return <Redirect to="/logged" />;
   // }
 
   //VALIDATION
@@ -43,8 +43,12 @@ const SignIn = ({ history }) => {
   });
 
   const {register, handleSubmit, errors} = useForm({
-        resolver: yupResolver(schema),
-      });
+    mode: 'onBlur',
+    reValidateMode: 'onChange',
+    shouldFocusError: false,
+    criteriaMode: "firstError",
+    resolver: yupResolver(schema),
+  });
       
   const onChange  = (data) => console.log(data)
       

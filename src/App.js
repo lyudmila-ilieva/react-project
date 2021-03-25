@@ -1,20 +1,36 @@
 import './App.css';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from '../src/pages/Home';
-
 import About from '../src/pages/About';
 import Register from '../src/pages/Register';
 import Login from '../src/pages/Login';
 import Contact from '../src/pages/Contact';
 import Covid from '../src/pages/Covid';
+
 import PrivateRoute from './PrivateRoute';
 import { AuthProvider } from '../src/Auth';
 
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
+import React, { useState } from 'react';
+import Toast from 'react-toast-component';
+
 function App() {
+  const [isOpen, setToast] = useState(true);
   return (
+<>
+    <Toast 
+    isOpen={isOpen}
+    hasAutoDismiss={false}
+    hasCloseBtn
+    closeCallback={() => setToast(false)}
+    description="We use cookies for better user experience. For more information check our Cookies Policy."
+    title="Cookies Notification"
+    duration={5000}
+    classNames={['info']}
+    />
 
     <AuthProvider>
       <Router>
@@ -35,7 +51,7 @@ function App() {
       </div>
       </Router>
      </AuthProvider>
-  
+</>
   );
 }
 
