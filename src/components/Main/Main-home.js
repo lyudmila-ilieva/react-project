@@ -5,6 +5,7 @@ import style from './Main.module.css';
 
 function Main() {
 
+
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState([]);
 
@@ -56,7 +57,6 @@ return (
     )}
   
   
-
 export default Main;
 
 
