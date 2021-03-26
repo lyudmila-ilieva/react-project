@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from '../src/pages/Home';
+import Product from '../src/components/Products/Product';
 import About from '../src/pages/About';
 import Register from '../src/pages/Register';
 import Login from '../src/pages/Login';
@@ -37,9 +38,9 @@ function App() {
       <div className="App">
         <Header />
           <Switch>
-          
-            <Route path="/" exact component={Home} />
-            <PrivateRoute path="/home" exact component={Home} />
+  
+          <PrivateRoute path="/home" exact component={About} /> 
+            <Route path="/" exact component={Home} />         
             <Route path="/about" component={About} />
             <Route path="/story" component={About} />
             <Route path="/sign-in" component={Login} />
@@ -47,6 +48,7 @@ function App() {
             <Route path="/contacts" component={Contact} />
             <Route path="/stores" component={Contact} />
             <Route path="/covid" component={Covid} />
+
           </Switch>
         <Footer />
       </div>

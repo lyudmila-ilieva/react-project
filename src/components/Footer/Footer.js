@@ -3,7 +3,16 @@ import './Footer.css';
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
 
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
+
 function Footer() {
+
+    const notify = () => {
+        toast.success(`Successful subscription.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose: false})
+    }
     return (
       <div className="footer-container">
           <section className="footer-subscription">
@@ -17,7 +26,7 @@ function Footer() {
                 <form>
                     <input type="email" name="email" placeholder="*Email Address" className="footer-input"/>
                 </form>
-                <Button buttonStyle="btn-outline" type="submit">Subscribe</Button>
+                <Button buttonStyle="btn-outline" type="submit" onClick={notify}>Subscribe</Button>
             </div>
           </section>
           <div className="footer-links">
@@ -109,7 +118,7 @@ function Footer() {
                 </div>
             </section>
       </div>
-    )
+ ) 
 }
 
 export default Footer;

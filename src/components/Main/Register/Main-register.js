@@ -23,7 +23,7 @@ const SignUp = ({ history }) => {
       history.push("/");
      } 
     catch (error) {
-      alert(error)
+      console.log(error)
     }
   }, [history]);
 
@@ -43,13 +43,13 @@ const {register, handleSubmit, errors} = useForm({
   resolver: yupResolver(schema),
 });
 
-const onChange = (data) => console.log(data)
+const onBlur = (data) => console.log(data)
 
   return (
     <div>
       <div className={style.mainContainerRegister}>
       <img src="img-login.jpg" alt="Register" />
-      <form className={style.formRegister} onChange={handleSubmit(onChange)} onSubmit={handleSignUp}>
+      <form className={style.formRegister} onBlur={handleSubmit(onBlur)} onSubmit={handleSignUp}>
       <p className={style.formRegisterHeading}>Register</p>
       {content.inputs.map((input, key) => {      
         return (

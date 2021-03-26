@@ -13,6 +13,7 @@ import * as yup from 'yup';
 
 //AUTHENTICATION
 const SignIn = ({ history }) => {
+
   const handleLogin = useCallback(
     async event => {
       event.preventDefault();
@@ -25,15 +26,13 @@ const SignIn = ({ history }) => {
       } catch (error) {
         alert(error);
       }
-    },
-    [history]
-  );
+    }, [history]);
 
   // const { currentUser } = useContext(AuthContext);
 
-  // if (currentUser) {
-  //   return <Redirect to="/logged" />;
-  // }
+  //   if (currentUser) {
+  //   return <Redirect to="/home" />;
+  //  }
 
   //VALIDATION
 
@@ -50,13 +49,13 @@ const SignIn = ({ history }) => {
     resolver: yupResolver(schema),
   });
       
-  const onChange  = (data) => console.log(data)
-      
+  const onBlur  = (data) => console.log(data)
+
         return (
           <div>
             <div className={style.mainContainerRegister}>
             <img src="img-login.jpg" alt="Register" />
-            <form className={style.formLogin} onChange={handleSubmit(onChange)} onSubmit={handleLogin}>
+            <form className={style.formLogin} onBlur={handleSubmit(onBlur)} onSubmit={handleLogin} >
             <p className={style.formRegisterHeading}>Sign In</p>
             {content.inputs.map((input, key) => {      
               return (
@@ -84,6 +83,6 @@ const SignIn = ({ history }) => {
           </div>
           </div>
         )
-}
 
+}
 export default withRouter(SignIn);

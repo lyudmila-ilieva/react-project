@@ -1,7 +1,12 @@
 import './Header.css';
 import { Link, NavLink } from 'react-router-dom';
+// import firebase from "../../firebase";
 
 function Header() {
+
+  // const logOut = () => {
+  //   firebase.auth().signOut();
+  // };
 
     return (
         <>
@@ -32,6 +37,11 @@ function Header() {
                   Sign In                  
                 </NavLink>
               </li>
+              {/* <li className="nav-item">
+                <Link activeStyle={{fontSize: '1.3em'}} exact={true} onClick={logOut} className="nav-links">
+                  Sign Out                  
+                </Link>
+              </li> */}
             </ul>
           </nav>            
         </>

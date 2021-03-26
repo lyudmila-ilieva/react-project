@@ -10,17 +10,17 @@ const [loading, setLoading] = useState([]);
 
 const ref = firebase.firestore().collection('products');
 
-// function getProducts() {
-//   setLoading(true);
-//   ref.onSnapshot((querySnapshot) => {
-//     const items = [];
-//     querySnapshot.forEach((doc) => {
-//       items.push(doc.data());
-//     });
-//     setProducts(items);
-//     setLoading(false);
-//   });
-// }
+function getProducts() {
+  setLoading(true);
+  ref.onSnapshot((querySnapshot) => {
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data());
+    });
+    setProducts(items);
+    setLoading(false);
+  });
+}
 
 function getProducts(){
   setLoading(true);
@@ -45,20 +45,26 @@ return (
       {products.map((product) => (
         <div key={product.id}>
           <h1>{product.name}</h1>
-      <img src={product.imageUrl} height="100px"/>
+          <img src={product.imageUrl} height="100px"/>
           <p>{product.type}</p>
           <p>{product.description}</p>
           <p>{product.price}</p>
-         
-        </div>
-      ))}
-        {/* <img src="img-home.jpg" alt="Home" />
-        <h3>If you want to view all offers you have to
-          <NavLink to="/sign-in" className={style.homeLink} exact={true}>&nbsp;&nbsp;sign in&nbsp;&nbsp;</NavLink>
-        or
-        <NavLink to="/sign-up" className={style.homeLink} exact={true}>&nbsp;&nbsp;register </NavLink></h3> */}
+          <p><button>Add to Wishlist</button></p>
+        </div>     
+      ))}  
     </div>
-  )
-}
+    )}
+  
+  
 
 export default Main;
+
+
+
+    // <div className={style.mainContainer}>
+    //      <img src="img-home.jpg" alt="Home" />
+    //      <h3>If you want to view all offers you have to
+    //        <NavLink to="/sign-in" className={style.homeLink} exact={true}>&nbsp;&nbsp;sign in&nbsp;&nbsp;</NavLink>
+    //      or
+    //      <NavLink to="/sign-up" className={style.homeLink} exact={true}>&nbsp;&nbsp;register </NavLink></h3>
+    //  </div>
