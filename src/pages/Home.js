@@ -1,9 +1,9 @@
-import Products from '../components/Products/Products';
+import Cards from '../components/Products/Products';
 
 function Home() {
   return (
     <>
-    <Products />
+    <Cards />  
     </>
   )
 }
