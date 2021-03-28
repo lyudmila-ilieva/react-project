@@ -13,27 +13,19 @@ const ref = firebase.firestore().collection('products');
 function getProducts() {
   setLoading(true);
   ref.onSnapshot((querySnapshot) => {
-    const items = [];
+    const products = [];
     querySnapshot.forEach((doc) => {
-      items.push(doc.data());
+      products.push(doc.data());
     });
-    setProducts(items);
+    setProducts(products);
     setLoading(false);
-  });
-}
-
-function getProducts(){
-  setLoading(true);
-  ref.get().then((item) => {
-const items = item.docs.map((doc) => doc.data());
-setProducts(items);
-setLoading(false);
   });
 }
 
 useEffect(() => {
 getProducts();
 }, []);
+
 
 if(loading){
   return <h1>Loading ...</h1>
@@ -61,6 +53,6 @@ if(loading){
         ))}
         </>
     )
-}
+  } 
 
 export default CardProduct;

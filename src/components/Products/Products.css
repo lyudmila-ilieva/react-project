@@ -17,11 +17,16 @@ h1 {
   
 .cards-wrapper {
     position: relative;
+    /* display: grid;
+    grid-template-columns: 1fr 1 fr; */
     /* margin: 20px 0 20px 0; */
 }
   
 .cards-products {
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
 
 }
   
@@ -95,4 +100,16 @@ h1 {
     font-size: 12px;
     border-radius: 6px;
     cursor: pointer;
+}
+
+.add-product-link {
+    text-decoration: none;
+    color: black;
+    font-family: 'Fascinate';
+    font-size: 30px;
+}
+
+.add-product-link:hover {
+    transition: all 0.2s ease-out;
+    font-size: 1.1em;  
 }

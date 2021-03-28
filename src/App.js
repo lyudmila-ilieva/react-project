@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from '../src/pages/Home';
+import Create from '../src/pages/AddProduct';
 
 import About from '../src/pages/About';
 import Register from '../src/pages/Register';
@@ -40,7 +41,8 @@ function App() {
           <Switch>
   
           <PrivateRoute path="/home" exact component={About} /> 
-            <Route path="/" exact component={Home} />         
+            <Route path="/" exact component={Home} /> 
+            <Route path="/add-product" exatct component={Create} />        
             <Route path="/about" component={About} />
             <Route path="/story" component={About} />
             <Route path="/sign-in" component={Login} />

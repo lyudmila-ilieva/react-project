@@ -1,7 +1,10 @@
-// import React from 'react';
-import './Footer.css';
+import React, { useState, useEffect } from 'react';
+import firebase from '../../firebase';
+
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
+
+import './Footer.css';
 
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +16,22 @@ function Footer() {
     const notify = () => {
         toast.success(`Successful subscription.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose: false})
     }
+
+    const [products, setProducts] = useState([]);
+
+    const ref = firebase.firestore().collection('products');
+
+    function getProducts(){
+      ref.get().then((item) => {
+      const items = item.docs.map((doc) => doc.data());
+      setProducts(items);
+        });
+      }
+      
+      useEffect(() => {
+      getProducts();
+      }, []);
+
     return (
       <div className="footer-container">
           <section className="footer-subscription">
@@ -51,9 +70,12 @@ function Footer() {
               <div className="footer-link-wrapper">
                   <div className="footer-link-items">
                       <h3>New Products</h3>
-                      <Link to="/faq">--</Link>
-                      <Link to="/clients">--</Link>
-                      <Link to="/mission">--</Link>
+                      {products.map((product) => (
+                        <div key={product.id}>
+                        <Link to="/">{product.name} - {product.category}</Link>
+                        </div>
+                        )
+                        )}
                   </div>
               </div>
           </div>

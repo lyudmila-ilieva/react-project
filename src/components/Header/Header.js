@@ -23,9 +23,9 @@ function Header() {
           </div>
           
           <ul className="nav-menu">
-            {/* <li className="nav-item">
+            <li className="nav-item">
             <p className="nav-greeting">Welcome, {currentUser.email}</p>
-            </li> */}
+            </li>
             <li className="nav-item">
               <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/about" className="nav-links">
                 About us                  
@@ -37,17 +37,14 @@ function Header() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/account" className="nav-links">
-                My Account                  
+              <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/wishlist" className="nav-links">
+                Wishlist&nbsp;<i className="fas fa-heart"/>                 
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} onClick={logOut} to="/sign-in" className="nav-links">
                 Sign Out                 
               </NavLink>
-            </li>
-            <li className="nav-item">
-            <p className="nav-greeting">Welcome, {currentUser.email}</p>
             </li>
           </ul>
         </nav>            
