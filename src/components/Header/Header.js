@@ -37,8 +37,8 @@ function Header() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/wishlist" className="nav-links">
-                Wishlist&nbsp;<i className="fas fa-heart"/>                 
+              <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/my-products" className="nav-links">
+                My Products&nbsp;<i className="fas fa-heart"/>                 
               </NavLink>
             </li>
             <li className="nav-item">

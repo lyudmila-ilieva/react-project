@@ -6,6 +6,8 @@ import Home from '../src/pages/Home';
 import Create from '../src/pages/AddProduct';
 import Edit from '../src/pages/EditProduct';
 
+import MyProductsPage from './pages/MyProducts';
+
 import About from '../src/pages/About';
 import Register from '../src/pages/Register';
 import Login from '../src/pages/Login';
@@ -47,6 +49,7 @@ function App() {
             <Route path="/edit-product/:productId" exact component={Edit} />       
             <Route path="/about" component={About} />
             <Route path="/story" component={About} />
+            <Route path="/my-products" component={MyProductsPage} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={Register} />
             <Route path="/contacts" component={Contact} />

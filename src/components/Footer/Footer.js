@@ -21,10 +21,17 @@ function Footer() {
 
     const ref = firebase.firestore().collection('products');
 
-    function getProducts(){
-      ref.get().then((item) => {
-      const items = item.docs.map((doc) => doc.data());
-      setProducts(items);
+    function getProducts() {
+        
+        ref
+        .limit(3)
+        .onSnapshot((querySnapshot) => {
+          const products = [];
+          querySnapshot.forEach((doc) => {
+            products.push(doc.data());
+          });
+          setProducts(products);
+          
         });
       }
       

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
 
 import './Products.css'
@@ -13,7 +12,9 @@ const ref = firebase.firestore().collection('products');
 
 function getProducts() {
   setLoading(true);
-  ref.onSnapshot((querySnapshot) => {
+  ref
+  .orderBy('price', 'desc')
+  .onSnapshot((querySnapshot) => {
     const products = [];
     querySnapshot.forEach((doc) => {
       products.push(doc.data());
@@ -22,6 +23,61 @@ function getProducts() {
     setLoading(false);
   });
 }
+
+function getProductsAsc() {
+  setLoading(true);
+  ref
+  .orderBy('price', 'asc')
+  .onSnapshot((querySnapshot) => {
+    const products = [];
+    querySnapshot.forEach((doc) => {
+      products.push(doc.data());
+    });
+    setProducts(products);
+    setLoading(false);
+  });
+}
+
+function getProductsDesc() {
+  setLoading(true);
+  ref
+  .orderBy('price', 'desc')
+  .onSnapshot((querySnapshot) => {
+    const products = [];
+    querySnapshot.forEach((doc) => {
+      products.push(doc.data());
+    });
+    setProducts(products);
+    setLoading(false);
+  });
+}
+function getProductsFurniture() {
+  setLoading(true);
+  ref
+  .where('category', '==', 'furniture')
+  .onSnapshot((querySnapshot) => {
+    const products = [];
+    querySnapshot.forEach((doc) => {
+      products.push(doc.data());
+    });
+    setProducts(products);
+    setLoading(false);
+  });
+}
+function getProductsAccessories() {
+  setLoading(true);
+  ref
+  .where('category', '==', 'accessories')
+  .onSnapshot((querySnapshot) => {
+    const products = [];
+    querySnapshot.forEach((doc) => {
+      products.push(doc.data());
+    });
+    setProducts(products);
+    setLoading(false);
+  });
+}
+
 useEffect(() => {
   getProducts();
   }, []);
@@ -31,18 +87,19 @@ useEffect(() => {
     return <h1>Loading ...</h1>
   }
 
-
-function deleteProduct(productId) {
-  ref
-  .doc(productId)
-  .delete()
-  .catch((error) => {
-    console.error(error)
-  });
-}
-
     return (
         <>
+        <div>
+        <h3 className="sort-products">Sort products</h3>
+          <ul className="sort-by"> <i className="fas fa-heart"/>&nbsp;By price:
+            <ul><button onClick={() => getProductsAsc()} className="sort-btn">Asc &#x2191;</button></ul>
+            <ul> <button onClick={() => getProductsDesc()} className="sort-btn">Desc &#x2193;</button></ul>
+          </ul>
+          <ul className="sort-by"> <i className="fas fa-heart"/>&nbsp;By category:
+            <ul><button onClick={() => getProductsFurniture()} className="sort-btn">Furniture</button></ul>
+            <ul> <button onClick={() => getProductsAccessories()}className="sort-btn">Accessories</button></ul>
+          </ul> 
+        </div>
         {products.map((product) => (
           <div key={product.id}>
         <li className="card-product"> 
@@ -54,9 +111,7 @@ function deleteProduct(productId) {
             <h2>{product.name}</h2>
             <p><b>Category:</b> {product.category}</p>
             <p><b>Description:</b> {product.description}</p>  
-            <button className="add-wishlist-btn">Add to Wishlist <i className="fas fa-heart"/></button>
-            <button><Link to={`/edit-product/${product.id}`}>Edit</Link></button>
-            <button onClick={() => deleteProduct(product.id)}>Delete</button>     
+            {/* <button className="add-wishlist-btn">Add to Wishlist <i className="fas fa-heart"/></button> */}  
             </div>
           </div>
         </li> 
@@ -66,4 +121,4 @@ function deleteProduct(productId) {
     )
   } 
 
-export default CardProduct;
+export default CardProduct;;

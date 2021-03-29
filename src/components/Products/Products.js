@@ -3,7 +3,7 @@ import CardProduct from './CardProduct';
 import { NavLink } from 'react-router-dom';
 
 function Cards() {
-  
+
     return (
       <>
         <div className="products">
