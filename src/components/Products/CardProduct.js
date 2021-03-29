@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+// import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
 
 import './Products.css'
@@ -21,14 +22,23 @@ function getProducts() {
     setLoading(false);
   });
 }
-
 useEffect(() => {
-getProducts();
-}, []);
+  getProducts();
+  }, []);
+  
+  
+  if(loading){
+    return <h1>Loading ...</h1>
+  }
 
 
-if(loading){
-  return <h1>Loading ...</h1>
+function deleteProduct(productId) {
+  ref
+  .doc(productId)
+  .delete()
+  .catch((error) => {
+    console.error(error)
+  });
 }
 
     return (
@@ -43,12 +53,13 @@ if(loading){
           <div className="card-product-text">
             <h2>{product.name}</h2>
             <p><b>Category:</b> {product.category}</p>
-            <p><b>Description:</b> {product.description}</p>
-            <button type="submit" className="add-wishlist-btn">Add to Wishlist <i className="fas fa-heart"/></button>
+            <p><b>Description:</b> {product.description}</p>  
+            <button className="add-wishlist-btn">Add to Wishlist <i className="fas fa-heart"/></button>
+            {/* <Link to="/edit-product">Edit</Link> */}
+            <button onClick={() => deleteProduct(product.id)}>Delete</button>     
             </div>
           </div>
         </li> 
-        
         </div>
         ))}
         </>

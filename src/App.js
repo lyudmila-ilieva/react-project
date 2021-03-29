@@ -42,7 +42,7 @@ function App() {
   
           <PrivateRoute path="/home" exact component={About} /> 
             <Route path="/" exact component={Home} /> 
-            <Route path="/add-product" exatct component={Create} />        
+            <Route path="/add-product" exact component={Create} />        
             <Route path="/about" component={About} />
             <Route path="/story" component={About} />
             <Route path="/sign-in" component={Login} />

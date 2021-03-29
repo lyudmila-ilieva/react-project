@@ -4,10 +4,11 @@ import {v4 as uuidv4} from 'uuid';
 import { AuthContext } from "../../../Auth";
 
 import Button from '../../Button/Button';
-import style from './Main-add-product.css';
+import'./Main-add-product.css';
 
 
 //ADD PRODUCT
+
 
 const AddProduct = () => {
 
@@ -22,13 +23,12 @@ const { currentUser } = useContext(AuthContext);
 const ref = firebase.firestore().collection("products");
 
 const handleAddProduct = (newProduct) => {
-
     ref
-    .doc(newProduct.id.creator)
+    .doc(newProduct.id)
     .set(newProduct)
     .catch((error) => {
         console.error(error)
-    });
+    });  
 }
 
 return (
@@ -45,13 +45,20 @@ return (
           className="add-product-input"
         />
         <label className="add-product-element">Description:</label>
-        <textarea value={description} className="add-product-input" onChange={(e) => setDescription(e.target.value)} />
+        <textarea 
+          value={description} 
+          onChange={(e) => setDescription(e.target.value)}
+          className="add-product-input"
+        />
         <label htmlFor="category" className="add-product-element">Choose a category:</label>
         <select 
           name="category" 
           id="category" 
-          value={category} onChange={(e) => setCategory(e.target.value)}
-          className="add-product-input">
+          value={category} 
+          onChange={(e) => setCategory(e.target.value)}
+          className="add-product-input"
+        >
+        <option value="-">-</option>
         <option value="furniture">Furniture</option>
         <option value="accessories">Accessories</option>
         </select>
@@ -64,13 +71,14 @@ return (
         />
         <label className="add-product-element">Price</label>
         <input
-          type="text"
+          type="number"
+          min="1"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           className="add-product-input"
         />
         <Button onClick={() => handleAddProduct({ name, description, category, imageUrl, price, id: uuidv4(), creator: currentUser.uid })}
-        buttonStyle="btn-register">
+        buttonStyle="btn-primary">
           Submit
         </Button>
         </form>
