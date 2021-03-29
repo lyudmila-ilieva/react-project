@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import firebase from '../../firebase';
 
 import './Products.css'
@@ -55,7 +55,7 @@ function deleteProduct(productId) {
             <p><b>Category:</b> {product.category}</p>
             <p><b>Description:</b> {product.description}</p>  
             <button className="add-wishlist-btn">Add to Wishlist <i className="fas fa-heart"/></button>
-            {/* <Link to="/edit-product">Edit</Link> */}
+            <button><Link to={`/edit-product/${product.id}`}>Edit</Link></button>
             <button onClick={() => deleteProduct(product.id)}>Delete</button>     
             </div>
           </div>

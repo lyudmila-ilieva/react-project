@@ -1,18 +1,46 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from 'react';
 import firebase from "../../../firebase";
 
 import Button from '../../Button/Button';
-import './Main-edit-product.css';
+// import './Main-edit-product.css';
 
 
 //EDIT PRODUCT
 
 const EditProduct = () => {
 
+const [products, setProducts] = useState([]);
+const [loading, setLoading] = useState([]);
+const [name, setName] = useState('');
+const [category, setCategory] = useState('');
+const [description, setDescription] = useState('');
+const [imageUrl, setImageUrl] = useState('');
+const [price, setPrice] = useState('');
+
 const ref = firebase.firestore().collection('products');
 
+function getProducts() {
+  setLoading(true);
+  ref.onSnapshot((querySnapshot) => {
+    const products = [];
+    querySnapshot.forEach((doc) => {
+      products.push(doc.data());
+    });
+    setProducts(products);
+    setLoading(false);
+  });
+}
+  useEffect(() => {
+    getProducts();
+    }, []);
+    
+    
+    if(loading){
+      return <h1>Loading ...</h1>
+    }
+    
+
 function handleEditProduct(updatedProduct) {
-  setLoading();
   ref
     .doc(updatedProduct.id)
     .update(updatedProduct)
@@ -25,37 +53,42 @@ return (
     <>
     {products.map((product) => (
       <div key={product.id}>
-      <div className="main-container-add-product">
+      <div className="main-container-edit-product">
       <img src="img-main-add-product.jpg" alt="Add Product" />
       <form className="form-add-product">
         <h3 className="form-add-product-heading">Edit Product</h3>
         <label className="add-product-element">Name:</label>
         <input
           type="text"
-          value={product.name}
+          defaultValue={product.name}
+          onChange={(e) => setName(e.target.value)}
           className="add-product-input"
-        >{product.name}</input>
+        />
         <label className="add-product-element">Description:</label>
-        <textarea className="add-product-input">{product.description}</textarea>
+        <textarea 
+        defaultValue={product.description}
+        onChange={(e) => setDescription(e.target.value)} 
+        className="add-product-input"/>
         {/* <label htmlFor="category" className="add-product-element">Choose a category:</label>
         <select 
           name="category" 
           id="category" 
-          value={category}
-          className="add-product-input">
-      {product.category}
-        </select> */}
+          value={product.category}
+          className="add-product-input"
+      /> */}
         <label className="add-product-element">Image URL:</label>
         <input
           type="text"
-          value={product.imageUrl}
-          className="add-product-input">{product.imageUrl}</input>
+          defaultValue={product.imageUrl}
+          onChange={(e) => setImageUrl(e.target.value)}
+          className="add-product-input"/>
         <label className="add-product-element">Price</label>
         <input
           type="text"
-          value={Number(product.price)}
+          defaultValue={Number(product.price)}
+          onChange={(e) => setPrice(e.target.value)}
           className="add-product-input"
-        >{product.price}</input>
+        />
         <Button onClick={() => handleEditProduct({ name: product.name, description, imageUrl, price, id: product.id, creator: product.creator })}
         buttonStyle="btn-register">
           Edit
@@ -63,7 +96,7 @@ return (
         </form>
       </div>  
       </div>
-      ))}
+    ))}
  </>
   );
 }
