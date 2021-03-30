@@ -11,16 +11,29 @@ const EditProduct = () => {
 
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState([]);
-const [name, setName] = useState('');
 const [description, setDescription] = useState('');
-const [imageUrl, setImageUrl] = useState('');
 const [price, setPrice] = useState('');
 
 const ref = firebase.firestore().collection('products');
 
+let id = window.location.pathname.split("/")[2];
+
+
+// function myTrim(id) {
+//   return id.replace('?','');
+// }
+
+// if(id[id.length-1] === '?'){
+// myTrim()
+// }
+
+
 function getProducts() {
   setLoading(true);
-  ref.onSnapshot((querySnapshot) => {
+  ref
+  .where('id', '==', id)
+  // .where('id', '==', `${id}?`)
+  .onSnapshot((querySnapshot) => {
     const products = [];
     querySnapshot.forEach((doc) => {
       products.push(doc.data());
@@ -38,10 +51,10 @@ function getProducts() {
       return <h1>Loading ...</h1>
     }
     
-function handleEditProduct(updatedProduct) {
+function handleEditProduct(product) {
   ref
-    .doc(updatedProduct.id)
-    .update(updatedProduct)
+    .doc(product.id)
+    .update(product)
     .catch((error) => {
       console.error(error);
     });
@@ -53,34 +66,35 @@ return (
     {/* <img src="img-main-add-product.jpg" alt="Edit Product" />  */}
     {products.map((product) => (
       <div key={product.id}>
-      <form className="form-add-product">
-        <h3 className="form-add-product-heading">Edit Product</h3>
-        <label className="add-product-element">Name:</label>
+      <form className="form-edit-product">
+        <h3 className="form-edit-product-heading">Edit Product</h3>
+        <label className="edit-product-element">Name:</label>
         <input
           type="text"
           defaultValue={product.name}
-          onChange={(e) => setName(e.target.value)}
-          className="add-product-input"
+          // onChange={(e) => setName(e.target.value)}
+          className="edit-product-input"
         />
-        <label className="add-product-element">Description:</label>
+        <label className="edit-product-element">Description:</label>
         <textarea 
         defaultValue={product.description}
         onChange={(e) => setDescription(e.target.value)} 
-        className="add-product-input"/>
-        <label className="add-product-element">Image URL:</label>
+        className="edit-product-input"/>
+        <label className="edit-product-element">Image URL:</label>
         <input
           type="text"
           defaultValue={product.imageUrl}
-          onChange={(e) => setImageUrl(e.target.value)}
-          className="add-product-input"/>
-        <label className="add-product-element">Price</label>
+          // onChange={(e) => setImageUrl(e.target.value)}
+          className="edit-product-input"/>
+        <label className="edit-product-element">Price</label>
         <input
-          type="text"
-          defaultValue={Number(product.price)}
-          onChange={(e) => setPrice(e.target.value)}
-          className="add-product-input"
+          type="number"
+          min="1"
+          defaultValue={product.price}
+          onChange={(e) => setPrice(Number(e.target.value))}
+          className="edit-product-input"
         />
-        <Button onClick={() => handleEditProduct({ name: product.name, description, imageUrl, price, id: product.id, creator: product.creator })}
+        <Button onClick={() => handleEditProduct({ name: product.name, description, imageUrl: product.imageUrl, price, id: product.id, creator: product.creator })}
         buttonStyle="btn-primary">
         Edit
         </Button>
