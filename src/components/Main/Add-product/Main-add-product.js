@@ -61,6 +61,7 @@ return (
         <option value="-">-</option>
         <option value="furniture">Furniture</option>
         <option value="accessories">Accessories</option>
+        <option value="other">Other</option>
         </select>
         <label className="add-product-element">Image URL:</label>
         <input
@@ -74,10 +75,10 @@ return (
           type="number"
           min="1"
           value={price}
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={(e) => setPrice(Number(e.target.value))}
           className="add-product-input"
         />
-        <Button onClick={() => handleAddProduct({ name, description, category, imageUrl, price, id: uuidv4(), creator: currentUser.uid })}
+        <Button onClick={() => handleAddProduct({ name, description, category, imageUrl, price, id: uuidv4(), creator: currentUser.uid, createdAt: new Date() })}
         buttonStyle="btn-primary">
           Submit
         </Button>

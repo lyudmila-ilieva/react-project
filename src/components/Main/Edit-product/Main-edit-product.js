@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import firebase from "../../../firebase";
 
 import Button from '../../Button/Button';
-// import './Main-edit-product.css';
+import './Main-edit-product.css';
 
 
 //EDIT PRODUCT
@@ -12,7 +12,6 @@ const EditProduct = () => {
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState([]);
 const [name, setName] = useState('');
-const [category, setCategory] = useState('');
 const [description, setDescription] = useState('');
 const [imageUrl, setImageUrl] = useState('');
 const [price, setPrice] = useState('');
@@ -39,7 +38,6 @@ function getProducts() {
       return <h1>Loading ...</h1>
     }
     
-
 function handleEditProduct(updatedProduct) {
   ref
     .doc(updatedProduct.id)
@@ -51,10 +49,10 @@ function handleEditProduct(updatedProduct) {
 
 return (
     <>
+    <div className="main-container-edit-product">
+    {/* <img src="img-main-add-product.jpg" alt="Edit Product" />  */}
     {products.map((product) => (
       <div key={product.id}>
-      <div className="main-container-edit-product">
-      <img src="img-main-add-product.jpg" alt="Add Product" />
       <form className="form-add-product">
         <h3 className="form-add-product-heading">Edit Product</h3>
         <label className="add-product-element">Name:</label>
@@ -69,13 +67,6 @@ return (
         defaultValue={product.description}
         onChange={(e) => setDescription(e.target.value)} 
         className="add-product-input"/>
-        {/* <label htmlFor="category" className="add-product-element">Choose a category:</label>
-        <select 
-          name="category" 
-          id="category" 
-          value={product.category}
-          className="add-product-input"
-      /> */}
         <label className="add-product-element">Image URL:</label>
         <input
           type="text"
@@ -90,13 +81,13 @@ return (
           className="add-product-input"
         />
         <Button onClick={() => handleEditProduct({ name: product.name, description, imageUrl, price, id: product.id, creator: product.creator })}
-        buttonStyle="btn-register">
-          Edit
+        buttonStyle="btn-primary">
+        Edit
         </Button>
         </form>
       </div>  
-      </div>
     ))}
+    </div>
  </>
   );
 }

@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from '../src/pages/Home';
 import Create from '../src/pages/AddProduct';
-import Edit from '../src/pages/EditProduct';
+import EditProduct from '../src/pages/EditProduct';
 
 import MyProductsPage from './pages/MyProducts';
 
@@ -45,8 +45,8 @@ function App() {
   
           <PrivateRoute path="/home" exact component={About} /> 
             <Route path="/" exact component={Home} /> 
-            <Route path="/add-product" exact component={Create} />  
-            <Route path="/edit-product/:productId" exact component={Edit} />       
+            <Route path="/add-product" exact component={Create} /> 
+            <Route path="/edit-product/:productId" exact component={EditProduct} />       
             <Route path="/about" component={About} />
             <Route path="/story" component={About} />
             <Route path="/my-products" component={MyProductsPage} />

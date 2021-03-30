@@ -25,6 +25,7 @@ function Footer() {
         
         ref
         .limit(3)
+        .orderBy('createdAt', 'desc')
         .onSnapshot((querySnapshot) => {
           const products = [];
           querySnapshot.forEach((doc) => {

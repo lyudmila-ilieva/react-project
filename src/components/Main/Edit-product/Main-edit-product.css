@@ -1,5 +1,4 @@
 .main-container-edit-product{
-    /* background: url(../fonts-and-images/img-register-2.jpg) no-repeat center; */
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
@@ -12,7 +11,7 @@
     object-fit: contain;
 }
 
-.form-add-product {
+.form-edit-product {
   position: absolute;
   left: 15.5%;
   top: 19%;
@@ -23,7 +22,7 @@
   font-weight: bold;
 }
 
-.form-add-product-heading {
+.form-edit-product-heading {
   width: 100%;
   color: black;
   font-size: 30px;
@@ -31,10 +30,10 @@
   font-family: 'Fascinate';
 }
 
-.add-product-input {
+.edit-product-input {
   border: 1px solid black;
 }
 
-.add-product-element {
+.edit-product-element {
   margin: 2px 0 2px 0;
 }

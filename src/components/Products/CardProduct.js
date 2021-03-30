@@ -78,6 +78,20 @@ function getProductsAccessories() {
   });
 }
 
+function getProductsOther() {
+  setLoading(true);
+  ref
+  .where('category', '==', 'other')
+  .onSnapshot((querySnapshot) => {
+    const products = [];
+    querySnapshot.forEach((doc) => {
+      products.push(doc.data());
+    });
+    setProducts(products);
+    setLoading(false);
+  });
+}
+
 useEffect(() => {
   getProducts();
   }, []);
@@ -90,14 +104,15 @@ useEffect(() => {
     return (
         <>
         <div>
-        <h3 className="sort-products">Sort products</h3>
+        <h3 className="sort-products">&nbsp;&nbsp;Sort products</h3>
           <ul className="sort-by"> <i className="fas fa-heart"/>&nbsp;By price:
-            <ul><button onClick={() => getProductsAsc()} className="sort-btn">Asc &#x2191;</button></ul>
-            <ul> <button onClick={() => getProductsDesc()} className="sort-btn">Desc &#x2193;</button></ul>
+            <ul><button onClick={() => getProductsAsc()} className="sort-btn">Low to high <i className="fas fa-arrow-up"/></button></ul>
+            <ul> <button onClick={() => getProductsDesc()} className="sort-btn">High to low <i className="fas fa-arrow-down"/></button></ul>
           </ul>
           <ul className="sort-by"> <i className="fas fa-heart"/>&nbsp;By category:
-            <ul><button onClick={() => getProductsFurniture()} className="sort-btn">Furniture</button></ul>
-            <ul> <button onClick={() => getProductsAccessories()}className="sort-btn">Accessories</button></ul>
+            <ul><button onClick={() => getProductsFurniture()} className="sort-btn">Furniture&nbsp;<i className="fas fa-couch"/></button></ul>
+            <ul> <button onClick={() => getProductsAccessories()}className="sort-btn">Accessories&nbsp;<i className="fas fa-mug-hot"/></button></ul>
+            <ul> <button onClick={() => getProductsOther()}className="sort-btn">Other&nbsp;<i className="fab fa-earlybirds"/></button></ul>
           </ul> 
         </div>
         {products.map((product) => (

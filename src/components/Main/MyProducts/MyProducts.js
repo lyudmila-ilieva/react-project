@@ -56,8 +56,8 @@ useEffect(() => {
             <h2>{product.name}</h2>
             <p><b>Category:</b> {product.category}</p>
             <p><b>Description:</b> {product.description}</p>  
-            <button className="my-products-btn"><Link to={`/edit-product/${product.id}`}>Edit</Link></button>
-            <button className="my-products-btn" onClick={() => deleteProduct(product.id)}>Delete</button>   
+            <div><button className="my-products-btn"><Link to={`/edit-product/${product.id}`} className="link-edit-product">Edit</Link>
+            </button><button className="my-products-btn" onClick={() => deleteProduct(product.id)}>Delete</button></div>
             </div>
           </div>
         </li> 
