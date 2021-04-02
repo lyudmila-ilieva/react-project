@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import firebase from '../../firebase';
 
 import Button from '../Button/Button';
@@ -118,12 +118,6 @@ function Footer() {
                         aria-label= "Youtube">
                              <i className="fab fa-youtube" />
                         </a>
-                        {/* <Link className="social-icon-link youtube"
-                        to="/"
-                        target="_blank"
-                        aria-label= "Youtube">
-                            <i className="fab fa-youtube" />
-                        </Link> */}
                         <Link className="social-icon-link linkedin"
                         to="/"
                         target="_blank"
@@ -138,12 +132,6 @@ function Footer() {
                         aria-label= "Github">
                              <i className="fab fa-github" />
                         </a>
-                        {/* <Link className="social-icon-link github"
-                        to="/"
-                        target="_blank"
-                        aria-label= "Github">
-                            <i className="fab fa-github" />
-                        </Link> */}
                     </div>
                 </div>
             </section>

@@ -11,28 +11,16 @@ const EditProduct = () => {
 
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState([]);
-const [description, setDescription] = useState('');
 const [price, setPrice] = useState('');
 
 const ref = firebase.firestore().collection('products');
 
 let id = window.location.pathname.split("/")[2];
 
-
-// function myTrim(id) {
-//   return id.replace('?','');
-// }
-
-// if(id[id.length-1] === '?'){
-// myTrim()
-// }
-
-
 function getProducts() {
   setLoading(true);
   ref
   .where('id', '==', id)
-  // .where('id', '==', `${id}?`)
   .onSnapshot((querySnapshot) => {
     const products = [];
     querySnapshot.forEach((doc) => {
@@ -63,7 +51,6 @@ function handleEditProduct(product) {
 return (
     <>
     <div className="main-container-edit-product">
-    {/* <img src="img-main-add-product.jpg" alt="Edit Product" />  */}
     {products.map((product) => (
       <div key={product.id}>
       <form className="form-edit-product">
@@ -72,20 +59,14 @@ return (
         <input
           type="text"
           defaultValue={product.name}
-          // onChange={(e) => setName(e.target.value)}
+          disabled
           className="edit-product-input"
         />
         <label className="edit-product-element">Description:</label>
         <textarea 
         defaultValue={product.description}
-        onChange={(e) => setDescription(e.target.value)} 
+        disabled
         className="edit-product-input"/>
-        <label className="edit-product-element">Image URL:</label>
-        <input
-          type="text"
-          defaultValue={product.imageUrl}
-          // onChange={(e) => setImageUrl(e.target.value)}
-          className="edit-product-input"/>
         <label className="edit-product-element">Price</label>
         <input
           type="number"
@@ -94,7 +75,7 @@ return (
           onChange={(e) => setPrice(Number(e.target.value))}
           className="edit-product-input"
         />
-        <Button onClick={() => handleEditProduct({ name: product.name, description, imageUrl: product.imageUrl, price, id: product.id, creator: product.creator })}
+        <Button onClick={() => handleEditProduct({ name: product.name, description:product.description, price, id: product.id, creator: product.creator })}
         buttonStyle="btn-primary">
         Edit
         </Button>

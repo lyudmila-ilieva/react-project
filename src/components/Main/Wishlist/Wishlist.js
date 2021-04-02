@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useContext } from 'react';
 import firebase from '../../../firebase';
 import { AuthContext } from '../../../Auth';
 
-import './MyProducts.css';
+import './Wishlist.css';
 
-function  MyProducts() {
+function  Wishlist() {
 
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState([]);
@@ -16,7 +15,9 @@ const ref = firebase.firestore().collection('products');
 
 function getProducts() {
   setLoading(true);
-  ref.where('creator', '==', currentUser.uid).onSnapshot((querySnapshot) => {
+  ref
+  .where('wishlist', 'array-contains', currentUser.uid)
+  .onSnapshot((querySnapshot) => {
     const products = [];
     querySnapshot.forEach((doc) => {
       products.push(doc.data());
@@ -28,19 +29,17 @@ function getProducts() {
 useEffect(() => {
   getProducts();
   }, []);
-  
+
+const handleRemoveFromWishlist = (product) => {
+    ref
+    .doc(product.id)
+    .update({
+      wishlist: firebase.firestore.FieldValue.arrayRemove(currentUser.uid)
+    })
+}  
   
   if(loading){
     return <h1>Loading ...</h1>
-  }
-
-  function deleteProduct(productId) {
-    ref
-    .doc(productId)
-    .delete()
-    .catch((error) => {
-      console.error(error)
-    });
   }
 
     return (
@@ -56,8 +55,7 @@ useEffect(() => {
             <h2>{product.name}</h2>
             <p><b>Category:</b> {product.category}</p>
             <p><b>Description:</b> {product.description}</p>  
-            <div><button className="my-products-btn"><Link to={`/edit-product/${product.id}`} className="link-edit-product">Change price</Link>
-            </button><button className="my-products-btn" onClick={() => deleteProduct(product.id)}>Delete</button></div>
+            <div><button className="my-products-btn" onClick={() => handleRemoveFromWishlist(product)}>Remove</button></div>
             </div>
           </div>
         </li> 
@@ -67,4 +65,4 @@ useEffect(() => {
     )
   } 
 
-export default MyProducts;
+export default Wishlist;

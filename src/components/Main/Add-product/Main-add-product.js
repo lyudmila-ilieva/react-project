@@ -21,14 +21,14 @@ const [price, setPrice] = useState('');
 const { currentUser } = useContext(AuthContext);
 
 const ref = firebase.firestore().collection("products");
-
+  
 const handleAddProduct = (newProduct) => {
-    ref
-    .doc(newProduct.id)
-    .set(newProduct)
-    .catch((error) => {
-        console.error(error)
-    });  
+  ref
+  .doc(newProduct.id)
+  .set(newProduct)
+  .catch((error) => {
+      console.error(error)
+  });  
 }
 
 return (
@@ -78,7 +78,7 @@ return (
           onChange={(e) => setPrice(Number(e.target.value))}
           className="add-product-input"
         />
-        <Button onClick={() => handleAddProduct({ name, description, category, imageUrl, price, id: uuidv4(), creator: currentUser.uid, createdAt: new Date() })}
+        <Button onClick={() => handleAddProduct({ name, description, category, imageUrl, price, wishlist: [], id: uuidv4(), creator: currentUser.uid, createdAt: new Date() })}
         buttonStyle="btn-primary">
           Submit
         </Button>

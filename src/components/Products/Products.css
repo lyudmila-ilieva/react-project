@@ -17,13 +17,9 @@ h1 {
   
 .cards-wrapper {
     position: relative;
-    /* display: grid;
-    grid-template-columns: 1fr 1 fr; */
-    /* margin: 20px 0 20px 0; */
 }
   
 .cards-products {
-    /* display: flex; */
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
@@ -98,8 +94,14 @@ h1 {
     padding: 0;
     display: block;
     font-size: 12px;
-    border-radius: 6px;
+    border-radius: 4px;
+    padding: 3px 2px;
     cursor: pointer;
+}
+
+.add-wishlist-btn:hover {
+    font-size: 13px;
+    transition: all 0.2s ease-out;
 }
 
 .add-product-link {

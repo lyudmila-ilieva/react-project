@@ -1,4 +1,5 @@
-.main-container-edit-product{
+.main-container-edit-product {
+    background-image: url("../../fonts-and-images/img-main-add-product.jpg");
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;

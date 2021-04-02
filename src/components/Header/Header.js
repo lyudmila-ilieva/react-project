@@ -1,5 +1,5 @@
 import './Header.css';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from "../../Auth";
 import firebase from "../../firebase";
@@ -26,19 +26,24 @@ function Header() {
             <li className="nav-item">
             <p className="nav-greeting">Welcome, {currentUser.email}</p>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/about" className="nav-links">
                 About us                  
               </NavLink>
-            </li>
+            </li> */}
             <li className="nav-item">
               <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/contacts" className="nav-links">
                 Contacts                  
               </NavLink>
             </li>
             <li className="nav-item">
+              <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/wishlist" className="nav-links">
+               Wishlist&nbsp;<i className="fas fa-heart"/>                 
+              </NavLink>
+            </li>
+            <li className="nav-item">
               <NavLink activeStyle={{fontSize: '1.1em'}} exact={true} to="/my-products" className="nav-links">
-                My Products&nbsp;<i className="fas fa-heart"/>                 
+                My Products                 
               </NavLink>
             </li>
             <li className="nav-item">

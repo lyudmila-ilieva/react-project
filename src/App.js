@@ -7,6 +7,7 @@ import Create from '../src/pages/AddProduct';
 import EditProduct from '../src/pages/EditProduct';
 
 import MyProductsPage from './pages/MyProducts';
+import WishlistPage from './pages/WishlistPage';
 
 import About from '../src/pages/About';
 import Register from '../src/pages/Register';
@@ -42,7 +43,6 @@ function App() {
       <div className="App">
         <Header />
           <Switch>
-  
           <PrivateRoute path="/home" exact component={About} /> 
             <Route path="/" exact component={Home} /> 
             <Route path="/add-product" exact component={Create} /> 
@@ -50,6 +50,7 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/story" component={About} />
             <Route path="/my-products" component={MyProductsPage} />
+            <Route path="/wishlist" component={WishlistPage} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={Register} />
             <Route path="/contacts" component={Contact} />

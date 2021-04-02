@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from "../../Auth";
 import firebase from '../../firebase';
 
 import './Products.css'
@@ -7,6 +8,8 @@ function CardProduct() {
 
 const [products, setProducts] = useState([]);
 const [loading, setLoading] = useState([]);
+
+const { currentUser } = useContext(AuthContext);
 
 const ref = firebase.firestore().collection('products');
 
@@ -95,7 +98,15 @@ function getProductsOther() {
 useEffect(() => {
   getProducts();
   }, []);
-  
+
+const handleWishlist = (product) => {
+  ref
+  .doc(product.id)
+  .update({
+    wishlist: firebase.firestore.FieldValue.arrayUnion(currentUser.uid)
+  })
+  }
+ 
   
   if(loading){
     return <h1>Loading ...</h1>
@@ -118,7 +129,7 @@ useEffect(() => {
         {products.map((product) => (
           <div key={product.id}>
         <li className="card-product"> 
-          <figure className="card-product-image-wrap" data-category={`${product.price}$`}>
+          <figure className="card-product-image-wrap" data-category={`${product.price} €`}>
             <img src={product.imageUrl} alt="Product" className="card-product-img"/>
           </figure>         
           <div className="card-product-info">
@@ -126,7 +137,7 @@ useEffect(() => {
             <h2>{product.name}</h2>
             <p><b>Category:</b> {product.category}</p>
             <p><b>Description:</b> {product.description}</p>  
-            {/* <button className="add-wishlist-btn">Add to Wishlist <i className="fas fa-heart"/></button> */}  
+            <button className="add-wishlist-btn" onClick={() => handleWishlist(product)}>Add to Wishlist <i className="fas fa-heart"/></button>  
             </div>
           </div>
         </li> 
