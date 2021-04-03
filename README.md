@@ -16,7 +16,7 @@ An application used to show products, built with React, JavaScript, HTML and CSS
 
 ### My Products Page
 
-![my products](https://user-images.githubusercontent.com/79860332/113493300-c72df980-94e6-11eb-8494-c768d85b0655.jpg)
+![my products](https://user-images.githubusercontent.com/79860332/113493420-cea1d280-94e7-11eb-9bde-d16dc2e6dd5b.jpg)
 
 
 ### Contacts Page with Google Maps
