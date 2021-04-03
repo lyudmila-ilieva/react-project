@@ -7,7 +7,7 @@ function Cards() {
     return (
       <>
         <div className="products">
-            <h1 className="products-header">Check out our products or <NavLink to="/add-product" activeStyle={{fontSize: '1.1rem'}} className="add-product-link">add</NavLink> a new one:</h1>
+            <h1 className="products-header">Check out our products or <NavLink to="/add-product" activeStyle={{fontSize: '1.1rem'}}><button className="add-product-btn">add</button></NavLink> a new one:</h1>
             <div className="cards-container">
             <div className="cards-wrapper">
                 <ul className="cards-products">

@@ -104,16 +104,18 @@ h1 {
     transition: all 0.2s ease-out;
 }
 
-.add-product-link {
+.add-product-btn {
     text-decoration: none;
     color: black;
+    border-radius: 4px;
     font-family: 'Fascinate';
-    font-size: 30px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-.add-product-link:hover {
+.add-product-btn:hover {
     transition: all 0.2s ease-out;
-    font-size: 1.1em;  
+    font-size: 26px;  
 }
 
 .sort-products {
@@ -136,4 +138,9 @@ h1 {
 .sort-btn:hover {
     font-size: 14px;
     transition: all 0.2s ease-out;
+}
+
+.link-details-product {
+    text-decoration: none;
+    color: black;
 }

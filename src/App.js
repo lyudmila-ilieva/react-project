@@ -8,6 +8,7 @@ import EditProduct from '../src/pages/EditProduct';
 
 import MyProductsPage from './pages/MyProducts';
 import WishlistPage from './pages/WishlistPage';
+import DetailsPage from './pages/DetailsPage';
 
 import About from '../src/pages/About';
 import Register from '../src/pages/Register';
@@ -49,8 +50,9 @@ function App() {
             <Route path="/edit-product/:productId" exact component={EditProduct} />       
             <Route path="/about" component={About} />
             <Route path="/story" component={About} />
-            <Route path="/my-products" component={MyProductsPage} />
+            <Route path="/details/:productId" component={DetailsPage} />
             <Route path="/wishlist" component={WishlistPage} />
+            <Route path="/my-products" component={MyProductsPage} />
             <Route path="/sign-in" component={Login} />
             <Route path="/sign-up" component={Register} />
             <Route path="/contacts" component={Contact} />
