@@ -6,7 +6,7 @@ An application used to show products, built with React, JavaScript, HTML and CSS
 
 ### Home page for guests
 
-![guest-home](https://user-images.githubusercontent.com/79860332/113493285-ae254880-94e6-11eb-8329-577ae59ef423.jpg)
+![home-guest](https://user-images.githubusercontent.com/79860332/113493344-1ecc6500-94e7-11eb-8a95-afb02e2244d1.jpg)
 
 ### Home page for logged in users - products page
 
