@@ -1,3 +1,58 @@
+# REACT-PROJECT
+
+An application used to show products, built with React, JavaScript, HTML and CSS.
+
+
+Clone down this repository. You will need node and npm installed globally on your machine.
+
+## Installation:
+
+### `npm install`
+
+## To Start Server:
+
+### `npm start`
+
+## To Visit App:
+
+### `localhost:3000/`
+
+
+This was a 3 week long project built during my React course at Software University, Bulgaria. 
+Project goals included using technologies learned up until this point and familiarizing myself with documentation for new features.
+
+I built an application that allows users to view products after register/login. 
+Users can view all existing products, they can add new ones, see details of all products and add all products to their Wishlist. 
+Once added to Wishlist, they can view their favourite products and remove them if they want. 
+Also users can see products added by them, edit the price of their products and delete them.
+
+I started this process by using the create-react-app boilerplate, then adding react-router-dom. 
+
+## I have used these libraries:
+
+### 1.Authentication/Database
+#### `npm i firebase`
+
+### 2.Validation
+#### `react-hook-form`
+#### `npm install @hookform/resolvers`
+#### `npm install -S yup`
+
+### 3.Unique id
+#### `npm install uuidv4`
+
+### 4.Toast Component
+#### `react-toast-component`
+#### `react-toastify`
+
+### 5.Google Maps
+#### `@react-google-maps/api`
+#### `@reach/combobox`
+
+I have used Firebase Authentication and Firestore as a database.
+The technologies implemented in this project are React, React-Router, Java Script, HTML and CSS.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
