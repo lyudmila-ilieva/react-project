@@ -9,12 +9,22 @@ import './Footer.css';
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 toast.configure();
 
 function Footer() {
 
+const [email, setEmail] = useState('');
+
     const notify = () => {
+        if(email.length === 0){
+        toast.warning(`Empty email.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose: false})
+        } else if (!email.includes('@')){
+            console.log(email)
+        toast.error(`Invalid email.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose: false})
+        } else {
         toast.success(`Successful subscription.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose: false})
+        }
     }
 
     const [products, setProducts] = useState([]);
@@ -40,14 +50,6 @@ function Footer() {
       getProducts();
       }, []);
 
-      useEffect(() => {
-      window.scrollTo({
-          top: 0, 
-          left: 0,
-          behavior: "smooth"})
-      
-      });
-
     return (
       <div className="footer-container">
           <section className="footer-subscription">
@@ -59,7 +61,8 @@ function Footer() {
             </p>
             <div className="input-area">
                 <form>
-                    <input type="email" name="email" placeholder="*Email Address" className="footer-input"/>
+                    <input type="email" name="email" value={email} placeholder="*Email Address" className="footer-input" 
+                    onChange={(e) => setEmail(e.target.value)}/>
                 </form>
                 <Button buttonStyle="btn-outline" type="submit" onClick={notify}>Subscribe</Button>
             </div>

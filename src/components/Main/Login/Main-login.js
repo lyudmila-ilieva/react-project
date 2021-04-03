@@ -42,20 +42,20 @@ const SignIn = ({ history }) => {
   });
 
   const {register, handleSubmit, errors} = useForm({
-      mode: 'onBlur',
+      mode: 'onTouched',
       reValidateMode: 'onChange',
       shouldFocusError: false,
       criteriaMode: "firstError",
       resolver: yupResolver(schema),
   });
       
-  const onBlur  = (data) => console.log(data)
+  const onTouched  = (data) => console.log(data)
 
         return (
           <div>
             <div className={style.mainContainerRegister}>
             <img src="img-login.jpg" alt="Register" />
-            <form className={style.formLogin} onBlur={handleSubmit(onBlur)} onSubmit={handleLogin} >
+            <form className={style.formLogin} onTouched={handleSubmit(onTouched)} onSubmit={handleLogin} >
             <p className={style.formRegisterHeading}>Sign In</p>
             {content.inputs.map((input, key) => {      
               return (

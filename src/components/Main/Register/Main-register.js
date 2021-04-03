@@ -36,20 +36,20 @@ const schema = yup.object().shape({
   });
 
 const {register, handleSubmit, errors} = useForm({
-  mode: 'onBlur',
-  reValidateMode: 'onChange',
-  shouldFocusError: false,
-  criteriaMode: "firstError",
-  resolver: yupResolver(schema),
+    mode: 'onTouched',
+    reValidateMode: 'onChange',
+    shouldFocusError: false,
+    criteriaMode: "firstError",
+    resolver: yupResolver(schema),
 });
 
-const onBlur = (data) => console.log(data)
+const onTouched = (data) => console.log(data)
 
   return (
     <div>
       <div className={style.mainContainerRegister}>
       <img src="img-login.jpg" alt="Register" />
-      <form className={style.formRegister} onBlur={handleSubmit(onBlur)} onSubmit={handleSignUp}>
+      <form className={style.formRegister} onTouched={handleSubmit(onTouched)} onSubmit={handleSignUp}>
       <p className={style.formRegisterHeading}>Register</p>
       {content.inputs.map((input, key) => {      
         return (

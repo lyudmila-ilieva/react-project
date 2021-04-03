@@ -137,7 +137,7 @@ const handleWishlist = (product) => {
           <div className="card-product-text">
             <h2>{product.name}</h2>
             <p><b>Category:</b> {product.category}</p>
-            <p><b>Description:</b> {product.description}</p>  
+            <p><b>Description:</b> {product.description.substring(0,30)}</p>  
             <button className="add-wishlist-btn"><Link to={`/details/${product.id}`} className="link-details-product">Details</Link></button>
             <button className="add-wishlist-btn" onClick={() => handleWishlist(product)}>Add to Wishlist <i className="fas fa-heart"/></button> 
             </div>
