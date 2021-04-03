@@ -4,7 +4,21 @@ An application used to show products, built with React, JavaScript, HTML and CSS
 
 ## Project Screen Shots
 
+### Home page for guests
+
+![guest-home](https://user-images.githubusercontent.com/79860332/113493285-ae254880-94e6-11eb-8329-577ae59ef423.jpg)
+
+### Home page for logged in users - products page
+
 ![products](https://user-images.githubusercontent.com/79860332/113493260-77e7c900-94e6-11eb-9e50-a1a3125e4d7e.jpg)
+
+### My Products Page
+
+![my products](https://user-images.githubusercontent.com/79860332/113493300-c72df980-94e6-11eb-8494-c768d85b0655.jpg)
+
+### Contacts Page with Google Maps
+
+![map](https://user-images.githubusercontent.com/79860332/113493307-d319bb80-94e6-11eb-8dc8-3519a3f2b48a.jpg)
 
 ## Installation and Setup Instructions:
 
