@@ -2,10 +2,15 @@
 
 An application used to show products, built with React, JavaScript, HTML and CSS.
 
+## Project Screen Shots
+
+![products](https://user-images.githubusercontent.com/79860332/113493260-77e7c900-94e6-11eb-9e50-a1a3125e4d7e.jpg)
+
+## Installation and Setup Instructions:
 
 Clone down this repository. You will need node and npm installed globally on your machine.
 
-## Installation:
+# Instalation:
 
 ### `npm install`
 
