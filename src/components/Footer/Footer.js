@@ -40,6 +40,14 @@ function Footer() {
       getProducts();
       }, []);
 
+      useEffect(() => {
+      window.scrollTo({
+          top: 0, 
+          left: 0,
+          behavior: "smooth"})
+      
+      });
+
     return (
       <div className="footer-container">
           <section className="footer-subscription">
@@ -80,7 +88,7 @@ function Footer() {
                       <h3>New Products</h3>
                       {products.map((product) => (
                         <div key={product.id}>
-                        <Link to="/">{product.name} - {product.category}</Link>
+                        <Link to={`/details/${product.id}`}>{product.name} - {product.category}</Link>
                         </div>
                         )
                         )}

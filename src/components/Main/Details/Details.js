@@ -28,10 +28,10 @@ function getProducts() {
     setLoading(false);
   });
 }
+
   useEffect(() => {
     getProducts();
-    }, []);
-    
+  }, [id]);
     
     if(loading){
       return <h1>Loading ...</h1>

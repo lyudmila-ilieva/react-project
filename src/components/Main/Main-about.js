@@ -1,6 +1,12 @@
 import style from './Main.module.css';
+import { useEffect } from 'react';
 
 function Main() {
+
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [])
+
 return (
     <div className={style.mainContainer}>
         <img src="img-about-us.jpg" alt="About" />

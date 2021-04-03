@@ -1,5 +1,6 @@
 import './App.css';
 
+import ScrollToTop from './components/ScrollToTop';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Home from '../src/pages/Home';
@@ -43,6 +44,7 @@ function App() {
       <Router>
       <div className="App">
         <Header />
+        <ScrollToTop />
           <Switch>
           <PrivateRoute path="/home" exact component={About} /> 
             <Route path="/" exact component={Home} /> 

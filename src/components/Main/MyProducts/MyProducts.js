@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import firebase from '../../../firebase';
 import { AuthContext } from '../../../Auth';
@@ -16,7 +16,9 @@ const ref = firebase.firestore().collection('products');
 
 function getProducts() {
   setLoading(true);
-  ref.where('creator', '==', currentUser.uid).onSnapshot((querySnapshot) => {
+  ref
+  .where('creator', '==', currentUser.uid)
+  .onSnapshot((querySnapshot) => {
     const products = [];
     querySnapshot.forEach((doc) => {
       products.push(doc.data());
@@ -29,7 +31,7 @@ useEffect(() => {
   getProducts();
   }, []);
   
-  
+
   if(loading){
     return <h1>Loading ...</h1>
   }
@@ -56,8 +58,11 @@ useEffect(() => {
             <h2>{product.name}</h2>
             <p><b>Category:</b> {product.category}</p>
             <p><b>Description:</b> {product.description}</p>  
-            <div><button className="my-products-btn"><Link to={`/edit-product/${product.id}`} className="link-edit-product">Change price</Link>
-            </button><button className="my-products-btn" onClick={() => deleteProduct(product.id)}>Delete</button></div>
+            <div>
+            <button className="my-products-btn"><Link to={`/edit-product/${product.id}`} className="link-edit-product">Change price</Link>
+            </button>
+            <button className="my-products-btn" onClick={() => deleteProduct(product.id)}>Delete</button>
+            </div>
             </div>
           </div>
         </li> 
