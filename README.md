@@ -72,4 +72,5 @@ I started this process by using the create-react-app boilerplate, then adding re
 #### `@reach/combobox`
 
 I have used Firebase Authentication and Firestore as a database.
+The app is hosted using Firebase Hosting: https://react-project-3c67f.web.app/
 The technologies implemented in this project are React, React-Router, Java Script, HTML and CSS.
