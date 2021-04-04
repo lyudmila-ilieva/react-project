@@ -18,12 +18,12 @@ const [email, setEmail] = useState('');
 
     const notify = () => {
         if(email.length === 0){
-        toast.warning(`Empty email.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose: false})
+        toast.warning(`Empty email.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose:3000})
         } else if (!email.includes('@')){
             console.log(email)
-        toast.error(`Invalid email.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose: false})
+        toast.error(`Invalid email.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose:3000})
         } else {
-        toast.success(`Successful subscription.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose: false})
+        toast.success(`Successful subscription.`, {position: toast.POSITION.BOTTOM_CENTER, autoClose:3000})
         }
     }
 

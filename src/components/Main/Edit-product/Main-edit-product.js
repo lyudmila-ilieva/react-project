@@ -33,8 +33,7 @@ function getProducts() {
   useEffect(() => {
     getProducts();
     }, []);
-    
-    
+
     if(loading){
       return <h1>Loading ...</h1>
     }
