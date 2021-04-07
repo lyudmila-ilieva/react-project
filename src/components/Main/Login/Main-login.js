@@ -54,7 +54,7 @@ const SignIn = ({ history }) => {
         return (
           <div>
             <div className={style.mainContainerRegister}>
-            <img src="img-login.jpg" alt="Register" />
+            <img src="background-register.jpg" alt="Register" />
             <form className={style.formLogin} onTouched={handleSubmit(onTouched)} onSubmit={handleLogin} >
             <p className={style.formRegisterHeading}>Sign In</p>
             {content.inputs.map((input, key) => {      

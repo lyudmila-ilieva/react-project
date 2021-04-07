@@ -8,9 +8,9 @@
 }
 
 .btn-register {
-    background-color: #e1cdc5;
-    color: #393331;
-    border: 1px solid white;
+    background-color: #9f9e9f;
+    color: black;
+    border: 1px solid #9f9e9f;
     border-top-left-radius: 26px;
     border-bottom-right-radius: 26px;
 }
@@ -38,9 +38,9 @@
     border: none;
     cursor: pointer;
     margin-top: 12px;
-    background-color: #897a75;
-    color: #393331;
-    border: 1px solid white;
+    background-color: #6d6a6a;
+    color: black;
+    border: 1px solid #6d6a6a;
     transition: all 0.3s ease-out;
 }
 

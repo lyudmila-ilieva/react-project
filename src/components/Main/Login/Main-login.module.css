@@ -12,6 +12,11 @@
     object-fit: contain;
 }
 
+.mainContainerRegister img {
+  min-width: 100%;
+  max-width: 100%;
+}
+
 .formLogin {
     position: absolute;
     left: 40.5%;

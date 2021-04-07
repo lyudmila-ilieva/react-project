@@ -64,7 +64,7 @@ const [email, setEmail] = useState('');
                     <input type="email" name="email" value={email} placeholder="*Email Address" className="footer-input" 
                     onChange={(e) => setEmail(e.target.value)}/>
                 </form>
-                <Button buttonStyle="btn-outline" type="submit" onClick={notify}>Subscribe</Button>
+                <Button buttonStyle="btn-outline" type="submit" onClick={notify} className="btn">Subscribe</Button>
             </div>
           </section>
           <div className="footer-links">

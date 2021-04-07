@@ -37,6 +37,11 @@
   font-size: 40px;
 }
 
+.mainContainer img {
+  min-width: 100%;
+  max-width: 100%;
+}
+
 .homeLink {
 text-decoration: none;
 color: black;
